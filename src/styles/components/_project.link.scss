@@ -1,0 +1,26 @@
+.project--link {
+  display: block;
+  width: 6.25rem;
+  margin: 0.625rem 0;
+  padding: 0.3125rem;
+  color: $c--main;
+  background-color: transparent;
+  border: 1px solid $c--main;
+  border-radius: 0.625rem;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease-out,
+              background-color 0.3s ease-out,
+              border-color 0.3s ease-out;
+  &:hover,
+  &:active {
+    background-color: $c--purple;
+    border-color: $c--purple;
+    color: $c--white;
+    transition: color 0.3s ease-in,
+                background-color 0.3s ease-in,
+                border-color 0.3s ease-in;
+  }
+}

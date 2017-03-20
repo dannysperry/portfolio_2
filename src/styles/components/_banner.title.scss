@@ -1,0 +1,9 @@
+.banner--title {
+  font-size: 3.125rem;
+  display: block;
+  line-height: 1;
+  @media only screen and (min-width:$cut){
+    margin: 0;
+    font-size: 6.25rem;
+  }
+}

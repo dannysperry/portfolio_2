@@ -1,0 +1,11 @@
+.about--experiences {
+  text-align: center;
+  margin: 1.25rem auto;
+  font-size: 3.75rem;
+  p {
+    font-size: 1rem;
+  }
+  @media only screen and (min-width: $cut) {
+    font-size: 07.3125rem;
+  }
+}

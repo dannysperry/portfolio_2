@@ -1,0 +1,31 @@
+.banner--down_arrow {
+  color: $c--white;
+  position: absolute;
+  z-index: 1;
+  bottom: 1.5625rem;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  font-size: 1.875rem;
+  cursor: pointer;
+
+  .icon {
+    position: absolute;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 6.25rem;
+    height: 6.25rem;
+    fill: $c--white;
+    -webkit-animation: pulse 1.3s infinite;
+    animation: pulse 1.3s infinite;
+    &:hover,
+    &:active {
+      color: $c--secondary;
+    }
+  }
+}

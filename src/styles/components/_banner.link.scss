@@ -1,0 +1,19 @@
+.banner--nav_link {
+  color: $c--white;
+  display: inline-flex;
+  justify-content: space-between;
+  text-decoration: none;
+  font-size: 1.3125rem;
+  margin: 0.625rem;
+  @media only screen and (min-width:$cut){
+    font-size: 1.25rem;
+  }
+}
+
+.banner--nav_links {
+  margin-top: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}

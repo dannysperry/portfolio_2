@@ -1,0 +1,15 @@
+.project {
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.3125rem;
+  }
+
+  &:nth-child(even) {
+    .project--image {
+      @media only screen and (min-width: $cut) {
+        float: right;
+      }
+    }
+  }
+}
