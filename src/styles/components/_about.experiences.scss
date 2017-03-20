@@ -5,6 +5,14 @@
   p {
     font-size: 1rem;
   }
+  h4 {
+    @media (max-width: 920px) {
+      height: 2em;
+    }
+    @media (max-width: 550px) {
+      height: 1em;
+    }
+  }
   @media only screen and (min-width: $cut) {
     font-size: 07.3125rem;
   }

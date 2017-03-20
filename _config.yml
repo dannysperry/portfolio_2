@@ -6,7 +6,6 @@ description: I try to keep my digital footprint in one place
 
 # User settings
 username: Daniel Sperry
-about_description: Adapt what is useful, reject what is useless, and add what is specifically your own.
 user_title: Web Developer
 email: danny.sperry@gmail.com
 github_username:  dannysperry
@@ -16,3 +15,11 @@ google-analytics:
   id: "UA-93991983-1"
 
 exclude: ['package.json', 'src' , 'node_modules']
+
+
+about_me:
+  title: My Expertise
+  description: Adapt what is useful, reject what is useless, and add what is specifically your own.
+  front_end_description: I like taking responsive designs and making them function just right with CSS keyframe animations. Also this is one place I dedicate to keeping things organized and structured. Naming matters here and I try to apply conventions like BEM and an the inverted triangle css code struture which enforces good specificity and component/object naming.
+  back_end_description: I keep my eyes on some popular ideas in this department. Ideas like; OOP, SOLID design princible, test driven, well linted, and documented API's with efficient queries.
+  tools_description: I work primarily on OSx using Slack for communication, Sublime Text for coding, Chrome, rvm/nvm, guard/bower/gulp, github/bitbucket, and agile tools like trello. 
