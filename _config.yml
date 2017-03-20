@@ -23,3 +23,26 @@ about_me:
   front_end_description: I like taking responsive designs and making them function just right with CSS keyframe animations. Also this is one place I dedicate to keeping things organized and structured. Naming matters here and I try to apply conventions like BEM and an the inverted triangle css code struture which enforces good specificity and component/object naming.
   back_end_description: I keep my eyes on some popular ideas in this department. Ideas like; OOP, SOLID design princible, test driven, well linted, and documented API's with efficient queries.
   tools_description: I work primarily on OSx using Slack for communication, Sublime Text for coding, Chrome, rvm/nvm, guard/bower/gulp, github/bitbucket, and agile tools like trello. 
+
+experience_items:
+  - title: Grower's Outlet
+    date:
+      datetime: 2017-3-9 00:00Z
+      text: Mar 2017
+    logo: "/assets/img/growers_outlet--logo.png"
+    url: http://grolarllc.github.io/growers_outlet
+    description: Grolar LLC's first client. I was responsible for all the technical decisions made. We hosted with GithubPages for now using jekyll. The contact form hooks into a heroku app's POST API that I set up. The Menu is being built and it's hooked up using a JS library provided by the PoS systems owner.
+  - title: Metova, Inc
+    date:
+      datetime: 2015-3-1 00:00Z
+      text: 2015(Q2) - 2016(Q4)
+    logo: /assets/img/metova--logo.png
+    url: http://www.metova.com
+    description: I spent my first 8 months building 4 different MVPs. I was the only developer on each projects and it was my responsibility to develop the project and manage the client as well. I would work on a retainer and complete the features we set out to complete as well as drive weekly meetings with the client. Continuous deployment and constant email/chat kept me successful here.<br><br>I then moved onto larger projects using languages I'd never seen before. Languages like C and AngularJS to be specific. I was able to come into these projects and provide Ruby or front-end skills respectively. It wasn't always easy, but I only benefited from the work.<br><br>Aside from all the technical challenges I've endured with stride, I've also learned everything I needed to know about working from home. The pros were immediately obvious, but I've learned the cons. By now, I've got a home office that I can't help but focus in. I set it up that way on purpose.
+  - title: FINE Design Group
+    date:
+      datetime: 2013-11-11 00:00Z
+      text: 2014-2016(Q1)
+    logo: /assets/img/fine--logo.png
+    url: http://www.wearefine.com
+    description: The projects at FINE were perfect for me as a Jr Developer. Usually, they were functionally simple. Maybe a jQuery animations, or a new scaffold, perhaps some back-end work on one of the e-ecommerce apps API. <br><br>For the most part I was jumping into some messed up code. I'd notice issues and naturally I'd have solutions. Solving problems no one knew were there while completing my work on time is what allowed me to move into a lead position. <br><br>I benefited from that experience as well. Being lead gave me a change to teach and solify knowledge in Rails and front-end techiques.
