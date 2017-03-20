@@ -2,17 +2,13 @@
 <html lang="en">
   {% include head.html %}
   <body>
-      {% include header.html %}
+    {% include header.html %}
 
-      {% include about.html %}
+    {{ content }}
 
-      {% include projects.html %}
+    {% include footer.html %}
 
-      {{ content }}
-
-      {% include footer.html %}
-
-      {% include scripts.html %}
-      {% include google-analytics.html %}
+    {% include scripts.html %}
+    {% include google-analytics.html %}
   </body>
 </html>
