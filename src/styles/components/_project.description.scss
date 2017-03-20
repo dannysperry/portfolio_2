@@ -1,12 +1,16 @@
 .project--description {
+  text-align: center;
   h5 {
     margin: 0;
   }
-  li {
+  time {
     color: $c--main;
     font-size: 1.1rem;
   }
   p {
     margin-right: 0.3125rem;
+    @media only screen and (min-width: $cut) {
+      text-align: left;
+    }
   }
 }

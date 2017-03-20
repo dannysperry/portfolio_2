@@ -6,14 +6,12 @@
 
     {% for item in site.experience_items %}
     <article class="row project">
-      <div class="six columns project--image">
+      <div class="project--image">
         <img alt="mountains" src="{{ item.logo | prepend: site.baseurl }}" />
       </div>
-      <div class="six columns project--description">
+      <div class="project--description">
         <h5>{{ item.title }}</h5>
-        <li>
-          <time datatime="{{ item.date.datetime }}">{{ item.date.text }}</time>
-        </li>
+        <time datatime="{{ item.date.datetime }}">{{ item.date.text }}</time>
         <p>{{ item.description }}</p>
         <a class="project--link" href="{{ item.url }}">Check it out</a>
       </div>

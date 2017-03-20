@@ -6,11 +6,9 @@
     font-size: 1rem;
   }
   h4 {
-    @media (max-width: 920px) {
-      height: 2em;
-    }
-    @media (max-width: 550px) {
-      height: 1em;
+    font-size: 2rem;
+    @media (max-width: 600px) {
+      font-size: 1.8rem;
     }
   }
   @media only screen and (min-width: $cut) {

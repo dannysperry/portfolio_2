@@ -3,9 +3,15 @@
 @import 'settings/variables',
         'settings/keyframes.pulse';
 
-@import 'generics/base';
+@import 'generics/base',
+        'generics/columns',
+        'generics/images';
 
-@import 'elements/svg';
+@import 'elements/headings',
+        'elements/svg';
+
+@import 'components/about.experiences',
+        'components/about.title';
 
 @import 'objects/banner',
         'components/banner.content',
@@ -18,9 +24,7 @@
 @import 'objects/project',
         'components/project.description',
         'components/project.image',
-        'components/project.link';
-
-@import 'components/about.experiences',
-        'components/about.title';
+        'components/project.link',
+        'components/project.title';
 
 @import 'objects/footer';

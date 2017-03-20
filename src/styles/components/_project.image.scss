@@ -1,5 +1,4 @@
 .project {
-  display: flex;
   .project--image {
     display: flex;
     align-items: center;
@@ -7,14 +6,7 @@
     min-height: 100%;
   }
   img {
-    max-width: 100%;
     height: auto;
     border-radius: 0.3125rem;
-  }
-
-  &:nth-child(even) {
-    @media only screen and (min-width: $cut) {
-      flex-direction: row-reverse;
-    }
   }
 }
