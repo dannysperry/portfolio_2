@@ -28,18 +28,18 @@ post:
 about_me:
   title: My Expertise
   description: Adapt what is useful, reject what is useless, and add what is specifically your own.
-  front_end_description: I like taking responsive designs and making them function just right with CSS keyframe animations. Also this is one place I dedicate to keeping things organized and structured. Naming matters here and I try to apply conventions like BEM and an the inverted triangle css code struture which enforces good specificity and component/object naming.
-  back_end_description: I keep my eyes on some popular ideas in this department. Ideas like; OOP, SOLID design princible, test driven, well linted, and documented API's with efficient queries.
-  tools_description: I work primarily on OSx using Slack for communication, Sublime Text for coding, Chrome, rvm/nvm, guard/bower/gulp, github/bitbucket, and agile tools like trello. 
+  front_end_description: I like taking responsive designs and making them function just right. Organized CSS, semantic HTML, reusability through component architecture, and keyframe animations. There is a lot of speed and accessibility improvements here when you try to do it in pure CSS. If you can't tell, I care about keeping things organized and structured. BEMish, OOCSS, and ITCSS. I like ITCSS right now because it enforces good specificity and component/object naming which aligns nicely with React's Component structure.
+  back_end_description: Where the front-end feels like art's and craft's for me. The back-end feels like heavy lifting work. I like both, rarely at the same time. TDD/BDD and OOP are at the core of all my coding decisions because of the Rails community and how it brought up developer's like myself. After my brain really grasped testing and OOP, I advanced to learning organization techniques like SOLID and other common design patterns and anti-patterns. Once I'd established myself as a reliable developer, I'd decided to give back to the community. It was only natural, everything in rails is open source and making things for free is too easy on Github. Writing OSS made me think about documentation and suggesting standards within a project.
+  tools_description: I'm used to having my macbook. I have a sit and stand desk here at my home office, 23" monitor, and a comfy seat for when my legs want to tap out. I send a lot of messages through \#slack, email/call clients, code in SublimeText. I'm familiar with ruby and node. Their respective version managers as well as well as npm/webpack, gulp/bower/grunt, rubygems/bundler, and agile processes.
 
 experience_items:
   - title: Grower's Outlet
     date:
-      datetime: 2017-3-9 00:00Z
-      text: Mar 2017
+      datetime: 2016-12-31 00:00Z
+      text: Dec 2016
     logo: "/assets/img/growers_outlet--logo.png"
     url: http://grolarllc.github.io/growers_outlet
-    description: Grolar LLC's first client. I was responsible for all the technical decisions made. We hosted with GithubPages for now using jekyll. The contact form hooks into a heroku app's POST API that I set up. The Menu is being built and it's hooked up using a JS library provided by the PoS systems owner.
+    description: Grolar LLC's first client. He was happy with anything so I set him up with a cheap templated site. The meat of the project is in the menu. We hosted with GithubPages for now using Jekyll. The contact form hooks into one of my heroku app's POST API that I set up. The Menu is being built and it's hooked up using a JS library provided by the PoS systems owner.
   - title: Metova, Inc
     date:
       datetime: 2015-3-1 00:00Z
