@@ -1,6 +1,6 @@
 img {
   max-width: 200px;
-  @media only screen and (min-width: $cut) {
+  @include breakpoint(tablet) {
     max-width: 75%;
   }
 }

@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 @import 'settings/variables',
-        'settings/keyframes.pulse';
+        'settings/keyframes.pulse',
+        'settings/mixin.breakpoints';
 
 @import 'generics/base',
         'generics/columns',
@@ -10,10 +11,20 @@
 @import 'elements/headings',
         'elements/svg';
 
+// begin objects and components
+@import 'objects/post',
+        'objects/blog';
+//       objects/banner
+//       objects/banner.small
+//       objects/project
+//       objects/footer
+
+
 @import 'components/about.experiences',
         'components/about.title';
 
 @import 'objects/banner',
+        'objects/banner.small',
         'components/banner.content',
         'components/banner.description',
         'components/banner.down_arrow',

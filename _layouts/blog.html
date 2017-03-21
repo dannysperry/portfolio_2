@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include blog.head.html %}
+  <body>
+    {% include blog.header.html %}
+
+    <div class="blog">
+      {{ content }}
+    </div>
+
+    {% include blog.footer.html %}
+
+    {% include scripts.html %}
+    {% include google-analytics.html %}
+  </body>
+</html>

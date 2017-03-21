@@ -1,0 +1,37 @@
+---
+layout: blog
+title: Blog
+permalink: /blog/
+---
+
+
+{% if paginator.posts %}
+  {% assign posts = paginator.posts %}
+{% else %}
+  {% assign posts = site.posts %}
+{% endif %}
+
+{% assign posts_count = (posts | size) %}
+
+
+{% if posts_count > 0 %}
+  <div class="blog--posts">
+    {% for post in posts %}
+      <div class="blog--post">
+        <time class="blog--post--meta" datatime="{{ post.date }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+        <a class="blog--post--link" href="{{ post.url | prepend: site.baseurl }}">
+          <h3 class="blog--post--title">{{ post.title }}</h3>
+        </a>
+        <p class="blog--post--summary">
+          {% if post.summary %}
+            {{ post.summary }}
+          {% else %}
+            {{ post.excerpt }}
+          {% endif %}
+        </span>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <h1 class="blog--posts--coming_soon">{{ site.post.coming_soon }}</h3>
+{% endif %}

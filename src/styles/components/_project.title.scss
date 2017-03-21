@@ -1,6 +1,6 @@
 .projects--title {
   @extend .about--title;
-  @media only screen and (min-width: $cut) {
+  @include breakpoint(tablet) {
     h5 {
       text-align: center;
     }

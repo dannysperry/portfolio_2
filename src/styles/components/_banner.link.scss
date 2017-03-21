@@ -5,7 +5,7 @@
   text-decoration: none;
   font-size: 1.3125rem;
   margin: 0.625rem;
-  @media only screen and (min-width:$cut){
+  @include breakpoint(tablet) {
     font-size: 1.25rem;
   }
 }

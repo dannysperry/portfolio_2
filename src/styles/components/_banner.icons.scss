@@ -18,7 +18,7 @@
       color: $c--main;
       background: $c--white;
     }
-    @media only screen and (min-width:$cut) {
+    @include breakpoint(tablet) {
       width: 2.1875rem;
       height: 2.1875rem;
       font-size: 2.1875rem;

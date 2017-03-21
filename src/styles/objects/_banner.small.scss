@@ -1,0 +1,12 @@
+.banner {
+  &--small {
+    min-height: 33vh;
+    .particles-js-canvas-el {
+      height:33vh !important;
+    }
+
+    .banner--content {
+      height: 33vh;
+    }
+  }
+}

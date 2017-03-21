@@ -2,16 +2,19 @@
   text-align: center;
   margin: 1.25rem auto;
   font-size: 3.75rem;
+  line-height: 4rem;
   p {
     font-size: 1rem;
+    line-height: 1.5em;
   }
   h4 {
     font-size: 2rem;
-    @media (max-width: 600px) {
+    @include breakpoint(mobileonly) {
       font-size: 1.8rem;
     }
   }
-  @media only screen and (min-width: $cut) {
-    font-size: 07.3125rem;
+  @include breakpoint(tablet) {
+    font-size: 7.3125rem;
+    line-height: 7.5rem;
   }
 }

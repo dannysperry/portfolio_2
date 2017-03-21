@@ -13,8 +13,16 @@ github_username:  dannysperry
 # Google-analytics
 google-analytics:
   id: "UA-93991983-1"
+paginate: 5
+paginate_path: /page:num/
+
+
+gems: ['jekyll-paginate']
 
 exclude: ['package.json', 'src' , 'node_modules']
+
+post:
+  coming_soon: Sorry but I have no visible blog entries :(
 
 
 about_me:

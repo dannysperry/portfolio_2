@@ -1,0 +1,26 @@
+$bp-desktop: 70em;       // 16 * 70 = 1120px
+$bp-laptop: 64em;        // 16 * 64 = 1024px
+$bp-tablet: 50em;        // 16 * 50 = 800px
+$bp-phablet: 37.5em;     // 16 * 37.5 = 600px
+$bp-mobile-only: 37.5em; // 16 * 37.5 = 600px
+
+@mixin breakpoint($point) {
+   @if $point == desktop {
+     @media (min-width: $bp-desktop) { @content; }
+  }
+   @else if $point == laptop {
+     @media (min-width: $bp-laptop) { @content; }
+  }
+    @else if $point == tablet {
+     @media (min-width: $bp-tablet) { @content; }
+  }
+   @else if $point == phablet {
+     @media (min-width: $bp-phablet)  { @content; }
+  }
+  @else if $point == mobileonly {
+     @media (max-width: $bp-mobile-only)  { @content; }
+
+  }
+}
+
+// @include breakpoint(tablet) {}

@@ -1,5 +1,21 @@
 ---
-layout: default
+layout: blog
 ---
 
-{{ content }}
+<article class="post" id="intro">
+  <div class="content">
+    <section class="post--header">
+      <h1>{{ page.title }}</h1>
+      <time datatime="{{ page.date }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      {% if page.estimated_read %}
+      <span>{{ page.estimated_read }}</span>
+      {% endif %}
+      <article class="post--content">
+        {{ content }}
+      </article>
+    </section>
+  </div>
+</article>
+<p class="post--back_to">
+  <a href="{{ site.baseurl }}/blog">Back to blog</a>
+</p>

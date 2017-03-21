@@ -9,13 +9,10 @@
     flex: 1 0;
   }
 
-  @media only screen and (min-width: $cut) {
+  @include breakpoint(tablet) {
     flex-direction: row;
     margin: 1rem auto;
-  }
-
-  &:nth-child(even) {
-    @media only screen and (min-width: $cut) {
+    &:nth-child(even) {
       flex-direction: row-reverse;
     }
   }

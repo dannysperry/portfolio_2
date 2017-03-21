@@ -9,7 +9,7 @@
   }
   p {
     margin-right: 0.3125rem;
-    @media only screen and (min-width: $cut) {
+    @include breakpoint(tablet) {
       text-align: left;
     }
   }

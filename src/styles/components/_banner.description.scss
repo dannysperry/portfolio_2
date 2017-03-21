@@ -3,7 +3,7 @@
   display: block;
   line-height: 1;
   margin: 0.3125rem 0 0.625rem;
-  @media only screen and (min-width:$cut){
+  @include breakpoint(tablet) {
     font-size: 2.5rem;
   }
 }
