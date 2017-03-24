@@ -1,9 +1,22 @@
 html {
   font-size: 16px !important; // I use a lot of rem sizing
+  height: 100%;
 }
 
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px !important; // I use a lot of rem sizing
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.body--content {
+  flex: 1 0 auto;
+}
+
+header, footer {
+  flex: 0 0 auto;
 }
