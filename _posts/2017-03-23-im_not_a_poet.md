@@ -63,7 +63,7 @@ All my child hood thoughts,
 Were suddently not what I want.
 
 Quitting questions,  
-Reunited with Rylee,  
+Reunited with reality,  
 Suprising and satisfied.
 
 I have everything I need,  
@@ -83,8 +83,8 @@ But I see brighter days,
 watching your ways.
 
 Writer's win,  
-Xenodochial,  
-Though youth fades yearly.  
+"x" turned out to be extremelly draining,  
+Yielding my years.  
 
 I'm a believer in magic,  
 I've seen into your eyes.  
@@ -92,7 +92,7 @@ The man I am didn't just happen,
 I've been tried,  
 It was a ride that's taught me to fly.
 
-Zelous, zestful, zany;  
+Zealous, zestful, zany;  
 a lot more than a zero.
 
 I'm probably not done hurtin',  
