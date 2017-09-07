@@ -11,7 +11,7 @@ permalink: /blog/
   {% assign posts = site.posts %}
 {% endif %}
 
-{% assign posts_count = (posts | size) %}
+{% assign posts_count = posts|size %}
 
 
 {% if posts_count > 0 %}

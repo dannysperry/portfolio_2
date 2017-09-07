@@ -1,21 +1,21 @@
 ---
 layout: post
-title: I don't want you
-permalink: i_dont_want_you
-tag: limerick
+title: Social Media & I (a love/hate relationship)
+permalink: love_have_social_media
+tag: limerick hidden
 ---
 
-I played these video games,  
+I played video games,  
 Youth, friends, and soda stains!  
 So much fun!  
-Barely any sun.  
-I could find a reason to complain!
+Still got pleanty of sun.  
+I couldn't find a reason to complain!
 
 You are getting closer to me,  
 Timed for gradeschool you will be,  
 I just want to know,  
-If different colored colored snow,  
-changes it's velocity.
+If sun dyed snow,  
+falls with more velocity?
 
 Surely this is common truth,  
 It is a little heavier, you goof!  

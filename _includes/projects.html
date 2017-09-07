@@ -1,19 +1,28 @@
 <section class="projects" id="projects">
   <div class="container">
     <div class="projects--title">
-      <h3> Featured Projects </h3>
+      <h3> Projects and Code </h3>
     </div>
 
-    {% for item in site.experience_items %}
+    {% for item in site.projects %}
     <article class="row project">
       <div class="project--image">
-        <img alt="mountains" src="{{ item.logo | prepend: site.baseurl }}" />
+        <img alt="project image" src="{{ item.logo | prepend: site.baseurl }}" />
       </div>
       <div class="project--description">
         <h5>{{ item.title }}</h5>
         <time datatime="{{ item.date.datetime }}">{{ item.date.text }}</time>
         <p>{{ item.description }}</p>
-        <a class="project--link" href="{{ item.url }}">Check it out</a>
+        <a class="project--link" href="{{ item.url.href }}">{{ item.url.title}}</a>
+      </div>
+    </article>
+    {% endfor %}
+    {% for item in site.code_samples %}
+    <article class="row code_samples">
+      <div class="project--description">
+        <h5>{{ item.title }}</h5>
+        <p>{{ item.description }}</p>
+        <a class="project--link" href="{{ item.url.href }}">{{ item.url.title }}</a>
       </div>
     </article>
     {% endfor %}
