@@ -32,12 +32,15 @@
         'components/banner.link',
         'components/banner.title';
 
-@import 'objects/bio';
+@import 'objects/ChatApp',
+        'objects/MessageList',
+        'objects/SuggestionForm';
 
 @import 'objects/project',
         'components/project.description',
         'components/project.image',
         'components/project.link',
-        'components/project.title';
+        'components/project.title',
+        'components/SuggestionsList';
 
 @import 'objects/footer';
