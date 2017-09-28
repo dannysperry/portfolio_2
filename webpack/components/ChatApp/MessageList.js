@@ -7,24 +7,22 @@ import { submitMessage } from '../../actions'
 import Message from './Message'
 
 
-const MessageList = ({ messages }) => {
-  return (
-    <ul className="MessageList">
-      { messages.map((message, i) => {
-        return <Message
+const MessageList = ({ messages }) => (
+  <ul className="MessageList">
+    { messages.map((message, i) => (
+        <Message
           key={i}
           id={i}
           {...message} />
-      })}
-    </ul>
-  )
-}
+        )
+      )
+    }
+  </ul>
+)
 
-const mapStateToProps = state => {
-  return {
-    messages: state.messages
-  }
-}
+const mapStateToProps = (state) => ({
+  messages: state.messages
+})
 
 MessageList.propTypes = {
   messages: PropTypes.arrayOf(PropTypes.shape({

@@ -1,51 +1,33 @@
 import { messagesFromName, isPresent } from '../data/Pieces'
 
-const getYouMessage = (text) => {
-  return [{
-    text: text,
-    user: 'you',
-    completed: false
-  }]
-}
+const getYouMessage = (text) => ({
+  text: text,
+  user: 'you',
+  completed: false
+})
+
+const getMeMessage = (text) => ({
+  text: text,
+  user: 'me',
+  completed: false
+})
 
 const getMeMessages = (messageName) => {
-  console.log(messageName)
   var messages = messagesFromName(messageName)
-
-  if (messages.length > 0) {
-    messages = messages.map(message => ({
-      text: message,
-      user: 'me',
-      completed: false
-    }))
-  }
-  console.log(messages)
+  messages = messages.map(message => getMeMessage(message))
   return messages
 }
 
-const updateState = (state, messageName) => {
-  var newState = [...state]
-  console.log(isPresent(messageName))
-  if (isPresent(messageName)) {
-    newState = [
-      ...state,
-      ...getYouMessage(messageName),
-      ...getMeMessages(messageName)
-    ].filter((msg) => msg !== undefined)
-  }
-  console.log(newState)
-  return newState
-}
+const initialState = getMeMessages('init')
 
-const messages = (state = getMeMessages('init'), action) => {
-  var newState = state
-  switch (action.type) {
-    case 'SUBMIT_MESSAGE':
-      newState = updateState(state, action.text)
-    default:
-      newState = state
-  }
-  return newState
+const messages = (state = initialState, action) => {
+    switch(action.type) {
+        case 'SUBMIT_MESSAGE':
+          console.log(getMeMessages(action.text))
+          return [...state, getYouMessage(action.text), ...getMeMessages(action.text)]
+        default:
+          return state
+    }
 }
 
 export default messages

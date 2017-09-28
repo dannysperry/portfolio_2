@@ -7,31 +7,31 @@ import { submitMessage } from '../../actions'
 import Suggestion from './Suggestion'
 
 
-const SuggestionList = ({ suggestions, suggestionClickHandler }) => {
-  return (
-    <ul className="SuggestionsList">
-      { suggestions.map((suggestion, i) => {
-        return <Suggestion
-          key={i}
-          id={i}
-          value={suggestion.action}
-          onClick={suggestionClickHandler}
-          { ...suggestion } />
-      })}
-    </ul>
-  )
+const SuggestionList = ({ suggestions, suggestionClickHandler }) => (
+  <ul className="SuggestionsList">
+    { suggestions.map((suggestion, i) => (
+      <Suggestion
+        key={i}
+        id={i}
+        value={suggestion.action}
+        onClick={suggestionClickHandler}
+        { ...suggestion } />
+    ))}
+  </ul>
+)
+
+const mapStateToProps = state => {
+  return { suggestions: state.suggestions }
 }
 
-const mapStateToProps = (state) => ({
-  suggestions: state.suggestions
-})
-
-const mapDispatchToProps = (dispatch, props) => ({
-  suggestionClickHandler: (e) => {
-    const text = e.target.attributes.value.nodeValue
-    dispatch(submitMessage(text))
+const mapDispatchToProps = (dispatch) => {
+  return {
+    suggestionClickHandler: e => {
+      console.log(e.target.attributes.value.nodeValue)
+      dispatch(submitMessage(e.target.attributes.value.nodeValue))
+    }
   }
-})
+}
 
 SuggestionList.propTypes = {
   suggestions: PropTypes.arrayOf(PropTypes.shape({

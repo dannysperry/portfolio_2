@@ -40,7 +40,8 @@ const arrayOfPieces = [
     messages: [
       'Here is an about messages though bro',
       'Dive into my personality now'
-    ]
+    ],
+    suggestions: []
   },
 
   {
@@ -77,7 +78,8 @@ const arrayOfPieces = [
     name: 'code_examples--short',
     messages: [
       'Take a look at his [Gists](http://https://gist.github.com/dannysperry), an [example](https://github.com/dannysperry/api-generators) with generators that document and build json api resources in rails, or this [example](https://github.com/dannysperry/react-rails5/tree/fresh-start) that replaces the asset pipeline for webpack in Rails 5.1 & React'
-    ]
+    ],
+    suggestions: []
   },
 
   {
@@ -124,14 +126,16 @@ const arrayOfPieces = [
     name: 'code_examples--long--github--fullstack',
     messages: [
       '[Rails 5.1 & ReactJS example](https://github.com/dannysperry/react-rails5/tree/fresh-start)',
-    ]
+    ],
+    suggestions: []
   },
 
   {
     name: 'code_examples--long--github--backend',
     messages: [
       '[Api generator example](https://github.com/dannysperry/api-generators)'
-    ]
+    ],
+    suggestions: []
   },
 
   {
@@ -139,24 +143,19 @@ const arrayOfPieces = [
     messages: [
       "If you'd like I can text him a message. Type something and I'll make sure it's what you want to send."
     ],
-    suggestions: [
-      {}
-    ]
+    suggestions: []
   }
 ]
 
 // Returns a Piece or NULL
-const findByName = (name) => {
-  for (const piece of arrayOfPieces) {
-    if (piece.name !== name) { return null }
-    return piece
-  }
+const findByName = name => {
+  return arrayOfPieces.find(piece => piece.name === name)
 }
 
 // Returns an ARRAY
-const messagesFromName = (name) => {
+const messagesFromName = name => {
   const piece = findByName(name)
-  if (piece !== null) {
+  if (typeof(piece) !== 'undefined') {
     return piece.messages
   } else {
     return []
@@ -164,9 +163,9 @@ const messagesFromName = (name) => {
 }
 
 // Returns an ARRAY
-const suggestionsFromName = (name) => {
+const suggestionsFromName = name => {
   const piece = findByName(name)
-  if (piece !== null) {
+  if (typeof(piece) !== 'undefined') {
     return piece.suggestions
   } else {
     return []
@@ -174,7 +173,7 @@ const suggestionsFromName = (name) => {
 }
 
 // Returns a BOOL
-const isPresent = (name) => {
+const isPresent = name => {
   const arrayOfPiecesByNames = arrayOfPieces.map(piece => piece.name)
   return arrayOfPiecesByNames.includes(name)
 }
