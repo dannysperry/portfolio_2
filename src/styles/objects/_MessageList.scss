@@ -3,6 +3,14 @@ ul.MessageList {
 
   li {
     margin-bottom: 0;
+    transition: 3.5s;
+    opacity: 0;
+    visibility: hidden;
+
+    &.show {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 
   .chat_bubble {

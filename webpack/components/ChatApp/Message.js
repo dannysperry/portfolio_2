@@ -1,20 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const buildMessageClassName = (user) => {
-  var className = 'chat_bubble'
-  if (user.length > 0) {
-    className = `chat_bubble ${user}_message`
-  }
+const Message = ({ text, user, id, completed }) => {
+  const className = ['chat_bubble']
+  if (user) { className.push(`${user}_message`) }
+  if (completed) { className.push('show') }
 
-  return className
-}
-
-const Message = ({ text, user, id }) => {
-  const className = buildMessageClassName(user)
   return (
-    <li key={id} className={className}>
-      {text}
+    <li key={id} className={className.join(' ')}>
+      { text }
     </li>
   )
 }
@@ -22,6 +16,7 @@ const Message = ({ text, user, id }) => {
 Message.propTypes = {
   text: PropTypes.string.isRequired,
   user: PropTypes.string.isRequired,
+  completed: PropTypes.bool.isRequired,
   id: PropTypes.number.isRequired
 }
 

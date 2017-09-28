@@ -23,7 +23,6 @@ const initialState = getMeMessages('init')
 const messages = (state = initialState, action) => {
     switch(action.type) {
         case 'SUBMIT_MESSAGE':
-          console.log(getMeMessages(action.text))
           return [...state, getYouMessage(action.text), ...getMeMessages(action.text)]
         default:
           return state
