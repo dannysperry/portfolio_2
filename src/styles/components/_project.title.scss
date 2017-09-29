@@ -1,8 +1,0 @@
-.projects--title {
-  @extend .about--title;
-  @include breakpoint(tablet) {
-    h5 {
-      text-align: center;
-    }
-  }
-}

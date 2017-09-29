@@ -16,10 +16,9 @@ google-analytics:
 # paginate: 5
 # paginate_path: /page:num/
 
+exclude: ['package.json', 'src' , 'node_modules']
 
 # gems: ['jekyll-paginate']
-
-exclude: ['package.json', 'src' , 'node_modules']
 
 post:
   coming_soon: Sorry but I have no visible blog entries :(

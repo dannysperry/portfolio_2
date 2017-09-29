@@ -1,22 +1,33 @@
-html {
-  font-size: 16px !important; // I use a lot of rem sizing
+html, body {
   height: 100%;
+}
+
+html {
+  font: 1em/1.5 sans-serif;
+  overflow-y: scroll;
+  min-height: 100%;
 }
 
 body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px !important; // I use a lot of rem sizing
-
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  font-family: 'Montserrat',sans-serif;
+  font-size: 23px;
+  line-height: 1.4em;
+  font-weight: 400;
+  color: #222;
+  text-rendering: geometricPrecision;
+  font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
 }
 
-.body--content {
-  flex: 1 0 auto;
+@media only screen and (min-width: 1024px) {
+  body {
+    font-size: 23px;
+  }
 }
 
-header, footer {
-  flex: 0 0 auto;
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
 }

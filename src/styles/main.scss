@@ -14,33 +14,20 @@
 // begin objects and components
 @import 'objects/post',
         'objects/blog';
-//       objects/banner
-//       objects/banner.small
 //       objects/project
-//       objects/footer
 
-
-@import 'components/about.experiences',
-        'components/about.title';
-
-@import 'objects/banner',
-        'objects/banner.small',
-        'components/banner.content',
+@import 'components/banner.content',
         'components/banner.description',
         'components/banner.down_arrow',
         'components/banner.icons',
         'components/banner.link',
         'components/banner.title';
 
-@import 'objects/ChatApp',
-        'objects/MessageList',
-        'objects/SuggestionForm';
-
-@import 'objects/project',
-        'components/project.description',
-        'components/project.image',
-        'components/project.link',
-        'components/project.title',
-        'components/SuggestionsList';
-
-@import 'objects/footer';
+@import 'components/App',
+        'components/ChatApp',
+        'components/MessageList',
+        'components/Suggestion',
+        'components/SuggestionsList',
+        'components/chat_bubble',
+        'components/Footer',
+        'components/Header';

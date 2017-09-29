@@ -8,7 +8,7 @@ import Suggestion from './Suggestion'
 
 
 const SuggestionList = ({ suggestions, suggestionClickHandler }) => (
-  <ul className="SuggestionsList">
+  <div className="SuggestionsList">
     { suggestions.map((suggestion, i) => (
       <Suggestion
         key={i}
@@ -17,7 +17,7 @@ const SuggestionList = ({ suggestions, suggestionClickHandler }) => (
         onClick={suggestionClickHandler}
         { ...suggestion } />
     ))}
-  </ul>
+  </div>
 )
 
 const mapStateToProps = state => {
@@ -27,7 +27,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   return {
     suggestionClickHandler: e => {
-      console.log(e.target.attributes.value.nodeValue)
       dispatch(submitMessage(e.target.attributes.value.nodeValue))
     }
   }

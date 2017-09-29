@@ -1,14 +1,18 @@
 import React from 'react'
 
 import MessageList from './MessageList'
-import SuggestionForm from './SuggestionForm'
+import SuggestionList from './SuggestionList'
 
 
 const ChatApp = () => {
   return(
-    <div className="ChatApp">
-      <MessageList />
-      <SuggestionForm />
+    <div id="chatApp" className="ChatApp">
+      <div className="ChatApp--overflow">
+        <div className="ChatApp--container">
+          <MessageList />
+          <SuggestionList />
+        </div>
+      </div>
     </div>
   )
 }

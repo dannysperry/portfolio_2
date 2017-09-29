@@ -60,9 +60,9 @@
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
-	var _ChatApp = __webpack_require__(221);
+	var _index = __webpack_require__(221);
 
-	var _ChatApp2 = _interopRequireDefault(_ChatApp);
+	var _index2 = _interopRequireDefault(_index);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -72,19 +72,8 @@
 	(0, _reactDom.render)(_react2.default.createElement(
 	  _reactRedux.Provider,
 	  { store: store },
-	  _react2.default.createElement(_ChatApp2.default, null)
+	  _react2.default.createElement(_index2.default, null)
 	), document.getElementById('app'));
-	;
-
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
-
-	  __REACT_HOT_LOADER__.register(store, 'store', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/entry.js');
-	}();
-
-	;
 
 /***/ }),
 /* 1 */
@@ -24182,21 +24171,7 @@
 	  suggestions: _suggestions2.default
 	});
 
-	var _default = chatApp;
-	exports.default = _default;
-	;
-
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
-
-	  __REACT_HOT_LOADER__.register(chatApp, 'chatApp', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/reducers/index.js');
-
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/reducers/index.js');
-	}();
-
-	;
+	exports.default = chatApp;
 
 /***/ }),
 /* 218 */
@@ -24236,10 +24211,8 @@
 	  return messages;
 	};
 
-	var initialState = getMeMessages('init');
-
 	var messages = function messages() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 	  var action = arguments[1];
 
 	  switch (action.type) {
@@ -24250,29 +24223,7 @@
 	  }
 	};
 
-	var _default = messages;
-	exports.default = _default;
-	;
-
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
-
-	  __REACT_HOT_LOADER__.register(getYouMessage, 'getYouMessage', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/reducers/messages.js');
-
-	  __REACT_HOT_LOADER__.register(getMeMessage, 'getMeMessage', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/reducers/messages.js');
-
-	  __REACT_HOT_LOADER__.register(getMeMessages, 'getMeMessages', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/reducers/messages.js');
-
-	  __REACT_HOT_LOADER__.register(initialState, 'initialState', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/reducers/messages.js');
-
-	  __REACT_HOT_LOADER__.register(messages, 'messages', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/reducers/messages.js');
-
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/reducers/messages.js');
-	}();
-
-	;
+	exports.default = messages;
 
 /***/ }),
 /* 219 */
@@ -24406,33 +24357,11 @@
 	  return arrayOfPiecesByNames.includes(name);
 	};
 
-	var _default = arrayOfPieces;
-	exports.default = _default;
+	exports.default = arrayOfPieces;
 	exports.findByName = findByName;
 	exports.messagesFromName = messagesFromName;
 	exports.suggestionsFromName = suggestionsFromName;
 	exports.isPresent = isPresent;
-	;
-
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
-
-	  __REACT_HOT_LOADER__.register(arrayOfPieces, "arrayOfPieces", "/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/data/Pieces.js");
-
-	  __REACT_HOT_LOADER__.register(findByName, "findByName", "/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/data/Pieces.js");
-
-	  __REACT_HOT_LOADER__.register(messagesFromName, "messagesFromName", "/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/data/Pieces.js");
-
-	  __REACT_HOT_LOADER__.register(suggestionsFromName, "suggestionsFromName", "/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/data/Pieces.js");
-
-	  __REACT_HOT_LOADER__.register(isPresent, "isPresent", "/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/data/Pieces.js");
-
-	  __REACT_HOT_LOADER__.register(_default, "default", "/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/data/Pieces.js");
-	}();
-
-	;
 
 /***/ }),
 /* 220 */
@@ -24464,23 +24393,7 @@
 	  }
 	};
 
-	var _default = suggestions;
-	exports.default = _default;
-	;
-
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
-
-	  __REACT_HOT_LOADER__.register(initialState, 'initialState', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/reducers/suggestions.js');
-
-	  __REACT_HOT_LOADER__.register(suggestions, 'suggestions', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/reducers/suggestions.js');
-
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/reducers/suggestions.js');
-	}();
-
-	;
+	exports.default = suggestions;
 
 /***/ }),
 /* 221 */
@@ -24496,43 +24409,77 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _MessageList = __webpack_require__(222);
+	var _ChatApp = __webpack_require__(222);
+
+	var _ChatApp2 = _interopRequireDefault(_ChatApp);
+
+	var _Header = __webpack_require__(228);
+
+	var _Header2 = _interopRequireDefault(_Header);
+
+	var _Footer = __webpack_require__(229);
+
+	var _Footer2 = _interopRequireDefault(_Footer);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var App = function App() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'App' },
+	    _react2.default.createElement(_Header2.default, null),
+	    _react2.default.createElement(_ChatApp2.default, null),
+	    _react2.default.createElement(_Footer2.default, null)
+	  );
+	};
+
+	exports.default = App;
+
+/***/ }),
+/* 222 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _MessageList = __webpack_require__(223);
 
 	var _MessageList2 = _interopRequireDefault(_MessageList);
 
-	var _SuggestionForm = __webpack_require__(225);
+	var _SuggestionList = __webpack_require__(226);
 
-	var _SuggestionForm2 = _interopRequireDefault(_SuggestionForm);
+	var _SuggestionList2 = _interopRequireDefault(_SuggestionList);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var ChatApp = function ChatApp() {
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'ChatApp' },
-	    _react2.default.createElement(_MessageList2.default, null),
-	    _react2.default.createElement(_SuggestionForm2.default, null)
+	    { id: 'chatApp', className: 'ChatApp' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'ChatApp--overflow' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'ChatApp--container' },
+	        _react2.default.createElement(_MessageList2.default, null),
+	        _react2.default.createElement(_SuggestionList2.default, null)
+	      )
+	    )
 	  );
 	};
 
-	var _default = ChatApp;
-	exports.default = _default;
-	;
-
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
-
-	  __REACT_HOT_LOADER__.register(ChatApp, 'ChatApp', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/components/ChatApp/index.js');
-
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/components/ChatApp/index.js');
-	}();
-
-	;
+	exports.default = ChatApp;
 
 /***/ }),
-/* 222 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24555,9 +24502,9 @@
 
 	var _reactRedux = __webpack_require__(206);
 
-	var _actions = __webpack_require__(223);
+	var _actions = __webpack_require__(224);
 
-	var _Message = __webpack_require__(224);
+	var _Message = __webpack_require__(225);
 
 	var _Message2 = _interopRequireDefault(_Message);
 
@@ -24588,7 +24535,7 @@
 	        }, message));
 	      });
 	      return _react2.default.createElement(
-	        'ul',
+	        'ol',
 	        { className: 'MessageList' },
 	        messageComponents
 	      );
@@ -24612,27 +24559,10 @@
 	  }).isRequired).isRequired
 	};
 
-	var _default = (0, _reactRedux.connect)(mapStateToProps)(MessageList);
-
-	exports.default = _default;
-	;
-
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
-
-	  __REACT_HOT_LOADER__.register(MessageList, 'MessageList', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/components/ChatApp/MessageList.js');
-
-	  __REACT_HOT_LOADER__.register(mapStateToProps, 'mapStateToProps', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/components/ChatApp/MessageList.js');
-
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/components/ChatApp/MessageList.js');
-	}();
-
-	;
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MessageList);
 
 /***/ }),
-/* 223 */
+/* 224 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -24646,81 +24576,6 @@
 	    text: text
 	  };
 	};
-	;
-
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
-
-	  __REACT_HOT_LOADER__.register(submitMessage, 'submitMessage', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/actions/index.js');
-	}();
-
-	;
-
-/***/ }),
-/* 224 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _propTypes = __webpack_require__(208);
-
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Message = function Message(_ref) {
-	  var text = _ref.text,
-	      user = _ref.user,
-	      id = _ref.id,
-	      completed = _ref.completed;
-
-	  var className = ['chat_bubble'];
-	  if (user) {
-	    className.push(user + '_message');
-	  }
-	  if (completed) {
-	    className.push('show');
-	  }
-
-	  return _react2.default.createElement(
-	    'li',
-	    { key: id, className: className.join(' ') },
-	    text
-	  );
-	};
-
-	Message.propTypes = {
-	  text: _propTypes2.default.string.isRequired,
-	  user: _propTypes2.default.string.isRequired,
-	  completed: _propTypes2.default.bool.isRequired,
-	  id: _propTypes2.default.number.isRequired
-	};
-
-	var _default = Message;
-	exports.default = _default;
-	;
-
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
-
-	  __REACT_HOT_LOADER__.register(Message, 'Message', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/components/ChatApp/Message.js');
-
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/components/ChatApp/Message.js');
-	}();
-
-	;
 
 /***/ }),
 /* 225 */
@@ -24732,39 +24587,82 @@
 	  value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _SuggestionsList = __webpack_require__(226);
+	var _propTypes = __webpack_require__(208);
 
-	var _SuggestionsList2 = _interopRequireDefault(_SuggestionsList);
+	var _propTypes2 = _interopRequireDefault(_propTypes);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var SuggestionForm = function SuggestionForm() {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'SuggestionForm' },
-	    _react2.default.createElement(_SuggestionsList2.default, null)
-	  );
-	};
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _default = SuggestionForm;
-	exports.default = _default;
-	;
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Message = function (_Component) {
+	  _inherits(Message, _Component);
+
+	  function Message(props) {
+	    _classCallCheck(this, Message);
+
+	    var _this = _possibleConstructorReturn(this, (Message.__proto__ || Object.getPrototypeOf(Message)).call(this, props));
+
+	    _this.state = {
+	      text: '...'
+	    };
+	    return _this;
 	  }
 
-	  __REACT_HOT_LOADER__.register(SuggestionForm, 'SuggestionForm', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/components/ChatApp/SuggestionForm.js');
+	  _createClass(Message, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      setTimeout(function () {
+	        this.setState({
+	          text: this.props.text
+	        });
+	      }.bind(this), 1500);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var className = ['chat_bubble'];
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/components/ChatApp/SuggestionForm.js');
-	}();
+	      if (this.props.user === 'me') {
+	        className.push('chat_bubble--slideIn');
+	        className.push('chat_bubble--fade');
+	      } else if (this.props.user === 'you') {
+	        className.push('chat_bubble--response');
+	      }
 
-	;
+	      return _react2.default.createElement(
+	        'li',
+	        { key: this.props.id },
+	        _react2.default.createElement(
+	          'div',
+	          { className: className.join(' ') },
+	          this.state.text
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Message;
+	}(_react.Component);
+
+	Message.propTypes = {
+	  text: _propTypes2.default.string.isRequired,
+	  user: _propTypes2.default.string.isRequired,
+	  completed: _propTypes2.default.bool.isRequired,
+	  id: _propTypes2.default.number.isRequired
+	};
+
+	exports.default = Message;
 
 /***/ }),
 /* 226 */
@@ -24788,7 +24686,7 @@
 
 	var _reactRedux = __webpack_require__(206);
 
-	var _actions = __webpack_require__(223);
+	var _actions = __webpack_require__(224);
 
 	var _Suggestion = __webpack_require__(227);
 
@@ -24800,7 +24698,7 @@
 	  var suggestions = _ref.suggestions,
 	      suggestionClickHandler = _ref.suggestionClickHandler;
 	  return _react2.default.createElement(
-	    'ul',
+	    'div',
 	    { className: 'SuggestionsList' },
 	    suggestions.map(function (suggestion, i) {
 	      return _react2.default.createElement(_Suggestion2.default, _extends({
@@ -24820,7 +24718,6 @@
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
 	    suggestionClickHandler: function suggestionClickHandler(e) {
-	      console.log(e.target.attributes.value.nodeValue);
 	      dispatch((0, _actions.submitMessage)(e.target.attributes.value.nodeValue));
 	    }
 	  };
@@ -24834,26 +24731,7 @@
 	  suggestionClickHandler: _propTypes2.default.func.isRequired
 	};
 
-	var _default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(SuggestionList);
-
-	exports.default = _default;
-	;
-
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
-
-	  __REACT_HOT_LOADER__.register(SuggestionList, 'SuggestionList', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/components/ChatApp/SuggestionsList.js');
-
-	  __REACT_HOT_LOADER__.register(mapStateToProps, 'mapStateToProps', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/components/ChatApp/SuggestionsList.js');
-
-	  __REACT_HOT_LOADER__.register(mapDispatchToProps, 'mapDispatchToProps', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/components/ChatApp/SuggestionsList.js');
-
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/components/ChatApp/SuggestionsList.js');
-	}();
-
-	;
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(SuggestionList);
 
 /***/ }),
 /* 227 */
@@ -24880,9 +24758,12 @@
 	      text = _ref.text,
 	      id = _ref.id,
 	      value = _ref.value;
+
+	  var classes = ['chat_bubble', 'chat_bubble--response', 'Suggestion'];
+
 	  return _react2.default.createElement(
-	    'li',
-	    { className: 'Suggestion', key: id, id: id, value: value, onClick: onClick },
+	    'div',
+	    { key: id, id: id, className: classes.join(' '), value: value, onClick: onClick },
 	    text
 	  );
 	};
@@ -24892,21 +24773,104 @@
 	  text: _propTypes2.default.string.isRequired
 	};
 
-	var _default = Suggestion;
-	exports.default = _default;
-	;
+	exports.default = Suggestion;
 
-	var _temp = function () {
-	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-	    return;
-	  }
+/***/ }),
+/* 228 */
+/***/ (function(module, exports, __webpack_require__) {
 
-	  __REACT_HOT_LOADER__.register(Suggestion, 'Suggestion', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/components/ChatApp/Suggestion.js');
+	"use strict";
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/grolar/Google Drive/Web Career/code/jekyll/portfolio_2/webpack/components/ChatApp/Suggestion.js');
-	}();
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 
-	;
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Header = function Header() {
+	  return _react2.default.createElement(
+	    "header",
+	    { className: "Header", id: "particles-js" },
+	    _react2.default.createElement(
+	      "div",
+	      { className: "banner--content" },
+	      _react2.default.createElement(
+	        "h1",
+	        null,
+	        _react2.default.createElement(
+	          "span",
+	          { className: "banner--title" },
+	          "Daniel Sperry"
+	        ),
+	        _react2.default.createElement(
+	          "span",
+	          { className: "banner--description" },
+	          "Remote Web Developer"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "banner--nav_links" },
+	        _react2.default.createElement(
+	          "a",
+	          { className: "banner--nav_link", href: "#chatApp", "data-scroll": true },
+	          "About Me"
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "a",
+	      { className: "down banner--down_arrow", href: "#chatApp", "data-scroll": true },
+	      _react2.default.createElement("i", { className: "icon fa fa-chevron-down", "aria-hidden": "true" })
+	    )
+	  );
+	};
+
+	exports.default = Header;
+
+/***/ }),
+/* 229 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Footer = function Footer() {
+	  return _react2.default.createElement(
+	    "footer",
+	    { className: "Footer" },
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "\xA9 Daniel Sperry"
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "Build with Jekyll and ",
+	      _react2.default.createElement(
+	        "span",
+	        { className: "love" },
+	        "\u2764"
+	      )
+	    )
+	  );
+	};
+
+	exports.default = Footer;
 
 /***/ })
 /******/ ]);

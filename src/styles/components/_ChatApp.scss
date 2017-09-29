@@ -1,0 +1,28 @@
+.ChatApp {
+  width: 100vw;
+  max-width: 100%;
+  margin: 0 !important;
+  margin-top: 2em;
+
+  .ChatApp--overflow {
+    background: #fafafa;
+    position: relative;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 72px;
+
+    .ChatApp--container {
+      background: #fafafa;
+      position: relative;
+      overflow: hidden;
+      width: 100vw;
+      margin: 0 auto;
+      max-width: 768px;
+      min-height: calc(100vh - 80px);
+
+      &, & * {
+        box-sizing: border-box;
+        outline: none;
+      }
+    }
+  }
+}

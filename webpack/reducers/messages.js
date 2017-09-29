@@ -18,14 +18,12 @@ const getMeMessages = (messageName) => {
   return messages
 }
 
-const initialState = getMeMessages('init')
-
-const messages = (state = initialState, action) => {
+const messages = (state = [], action) => {
     switch(action.type) {
-        case 'SUBMIT_MESSAGE':
-          return [...state, getYouMessage(action.text), ...getMeMessages(action.text)]
-        default:
-          return state
+      case 'SUBMIT_MESSAGE':
+        return [...state, getYouMessage(action.text), ...getMeMessages(action.text)]
+      default:
+        return state
     }
 }
 

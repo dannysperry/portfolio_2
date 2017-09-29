@@ -17,9 +17,9 @@ class MessageList extends Component {
       )
     )
     return (
-      <ul className="MessageList">
+      <ol className="MessageList">
         { messageComponents }
-      </ul>
+      </ol>
     )
   }
 }

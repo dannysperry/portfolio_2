@@ -1,16 +1,39 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-const Message = ({ text, user, id, completed }) => {
-  const className = ['chat_bubble']
-  if (user) { className.push(`${user}_message`) }
-  if (completed) { className.push('show') }
+class Message extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: '...'
+    }
+  }
+  componentDidMount() {
+    setTimeout(function() {
+      this.setState({
+        text: this.props.text
+      })
+    }.bind(this), 1500)
+  }
 
-  return (
-    <li key={id} className={className.join(' ')}>
-      { text }
-    </li>
-  )
+  render() {
+    const className = ['chat_bubble']
+
+    if (this.props.user === 'me') {
+      className.push('chat_bubble--slideIn')
+      className.push('chat_bubble--fade')
+    } else if (this.props.user === 'you') {
+      className.push('chat_bubble--response')
+    }
+
+    return (
+      <li key={this.props.id}>
+        <div className={className.join(' ')}>
+          { this.state.text }
+        </div>
+      </li>
+    )
+  }
 }
 
 Message.propTypes = {

@@ -6,13 +6,13 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from './reducers'
 
-import ChatApp from './components/ChatApp'
+import App from './components/index'
 
 const store = createStore(reducer)
 
 render(
   <Provider store={store}>
-    <ChatApp />
+    <App />
   </Provider>,
   document.getElementById('app')
 )
