@@ -24183,15 +24183,19 @@
 	  value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _Pieces = __webpack_require__(219);
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+	var id = 0;
 	var getYouMessage = function getYouMessage(text) {
 	  return {
 	    text: text,
 	    user: 'you',
-	    completed: false
+	    completed: false,
+	    id: id++
 	  };
 	};
 
@@ -24199,7 +24203,8 @@
 	  return {
 	    text: text,
 	    user: 'me',
-	    completed: false
+	    completed: false,
+	    id: id++
 	  };
 	};
 
@@ -24218,6 +24223,16 @@
 	  switch (action.type) {
 	    case 'SUBMIT_MESSAGE':
 	      return [].concat(_toConsumableArray(state), [getYouMessage(action.text)], _toConsumableArray(getMeMessages(action.text)));
+	    case 'TOGGLE_MESSAGE':
+	      return state.map(function (message) {
+	        if (message.id !== action.id) {
+	          return message;
+	        }
+
+	        return _extends({}, message, {
+	          completed: true
+	        });
+	      });
 	    default:
 	      return state;
 	  }
@@ -24445,6 +24460,8 @@
 	  value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -24457,26 +24474,64 @@
 
 	var _SuggestionList2 = _interopRequireDefault(_SuggestionList);
 
+	var _reactRedux = __webpack_require__(206);
+
+	var _actions = __webpack_require__(224);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var ChatApp = function ChatApp() {
-	  return _react2.default.createElement(
-	    'div',
-	    { id: 'chatApp', className: 'ChatApp' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'ChatApp--overflow' },
-	      _react2.default.createElement(
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ChatApp = function (_Component) {
+	  _inherits(ChatApp, _Component);
+
+	  function ChatApp() {
+	    _classCallCheck(this, ChatApp);
+
+	    return _possibleConstructorReturn(this, (ChatApp.__proto__ || Object.getPrototypeOf(ChatApp)).apply(this, arguments));
+	  }
+
+	  _createClass(ChatApp, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      this.props.initHandler();
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
 	        'div',
-	        { className: 'ChatApp--container' },
-	        _react2.default.createElement(_MessageList2.default, null),
-	        _react2.default.createElement(_SuggestionList2.default, null)
-	      )
-	    )
-	  );
+	        { id: 'chatApp', className: 'ChatApp' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'ChatApp--overflow' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'ChatApp--container' },
+	            _react2.default.createElement(_MessageList2.default, null),
+	            _react2.default.createElement(_SuggestionList2.default, null)
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return ChatApp;
+	}(_react.Component);
+
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    initHandler: function initHandler() {
+	      dispatch((0, _actions.submitMessage)('init'));
+	    }
+	  };
 	};
 
-	exports.default = ChatApp;
+	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(ChatApp);
 
 /***/ }),
 /* 223 */
@@ -24489,8 +24544,6 @@
 	});
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -24510,44 +24563,42 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var MessageList = function MessageList(_ref) {
+	  var messages = _ref.messages,
+	      messageHandler = _ref.messageHandler;
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	  var messageComponents = messages.map(function (message) {
+	    return _react2.default.createElement(_Message2.default, _extends({ key: message.id }, message));
+	  });
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var MessageList = function (_Component) {
-	  _inherits(MessageList, _Component);
-
-	  function MessageList() {
-	    _classCallCheck(this, MessageList);
-
-	    return _possibleConstructorReturn(this, (MessageList.__proto__ || Object.getPrototypeOf(MessageList)).apply(this, arguments));
+	  var message = messages.find(function (m) {
+	    return m.completed === false;
+	  });
+	  if (message) {
+	    setTimeout(function () {
+	      messageHandler(message.id);
+	    }.bind(undefined), 2000);
 	  }
 
-	  _createClass(MessageList, [{
-	    key: 'render',
-	    value: function render() {
-	      var messageComponents = this.props.messages.map(function (message, i) {
-	        return _react2.default.createElement(_Message2.default, _extends({
-	          key: i,
-	          id: i
-	        }, message));
-	      });
-	      return _react2.default.createElement(
-	        'ol',
-	        { className: 'MessageList' },
-	        messageComponents
-	      );
-	    }
-	  }]);
-
-	  return MessageList;
-	}(_react.Component);
+	  return _react2.default.createElement(
+	    'ol',
+	    { className: 'MessageList' },
+	    messageComponents
+	  );
+	};
 
 	var mapStateToProps = function mapStateToProps(state) {
 	  return {
 	    messages: state.messages
+	  };
+	};
+
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    messageHandler: function messageHandler(id) {
+	      console.log(id);
+	      return dispatch((0, _actions.toggleMessage)(id));
+	    }
 	  };
 	};
 
@@ -24556,10 +24607,11 @@
 	    text: _propTypes2.default.string.isRequired,
 	    user: _propTypes2.default.string.isRequired,
 	    completed: _propTypes2.default.bool.isRequired
-	  }).isRequired).isRequired
+	  }).isRequired).isRequired,
+	  messageHandler: _propTypes2.default.func.isRequired
 	};
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MessageList);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(MessageList);
 
 /***/ }),
 /* 224 */
@@ -24570,10 +24622,27 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	var nextTodoId = 0;
+
 	var submitMessage = exports.submitMessage = function submitMessage(text) {
 	  return {
 	    type: 'SUBMIT_MESSAGE',
+	    id: nextTodoId++,
 	    text: text
+	  };
+	};
+
+	var toggleMessage = exports.toggleMessage = function toggleMessage(id) {
+	  return {
+	    type: 'TOGGLE_MESSAGE',
+	    id: id
+	  };
+	};
+
+	var setVisibilityFilter = exports.setVisibilityFilter = function setVisibilityFilter(filter) {
+	  return {
+	    type: 'SET_VISIBILITY_FILTER',
+	    filter: filter
 	  };
 	};
 
@@ -24599,6 +24668,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -24620,24 +24691,29 @@
 	  }
 
 	  _createClass(Message, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      setTimeout(function () {
-	        this.setState({
-	          text: this.props.text
-	        });
-	      }.bind(this), 1500);
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(nextProps) {
+	      if (nextProps.completed) {
+	        setTimeout(function () {
+	          this.setState({
+	            text: this.props.text
+	          });
+	        }.bind(this), 1500);
+	      }
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var className = ['chat_bubble'];
 
-	      if (this.props.user === 'me') {
-	        className.push('chat_bubble--slideIn');
-	        className.push('chat_bubble--fade');
-	      } else if (this.props.user === 'you') {
-	        className.push('chat_bubble--response');
+	      if (this.props.completed) {
+	        if (this.props.user === 'me') {
+	          className = [].concat(_toConsumableArray(className), ['chat_bubble--slideIn', 'chat_bubble--fade']);
+	        } else if (this.props.user === 'you') {
+	          className = [].concat(_toConsumableArray(className), ['chat_bubble--response']);
+	        }
+	      } else {
+	        className = [].concat(_toConsumableArray(className), ['incomplete']);
 	      }
 
 	      return _react2.default.createElement(
@@ -24770,7 +24846,9 @@
 
 	Suggestion.propTypes = {
 	  onClick: _propTypes2.default.func.isRequired,
-	  text: _propTypes2.default.string.isRequired
+	  text: _propTypes2.default.string.isRequired,
+	  id: _propTypes2.default.number.isRequired,
+	  value: _propTypes2.default.string.isRequired
 	};
 
 	exports.default = Suggestion;

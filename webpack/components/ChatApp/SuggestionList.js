@@ -20,17 +20,17 @@ const SuggestionList = ({ suggestions, suggestionClickHandler }) => (
   </div>
 )
 
-const mapStateToProps = state => {
-  return { suggestions: state.suggestions }
-}
+const mapStateToProps = state => (
+  { suggestions: state.suggestions }
+)
 
-const mapDispatchToProps = (dispatch) => {
-  return {
+const mapDispatchToProps = (dispatch) => (
+  {
     suggestionClickHandler: e => {
       dispatch(submitMessage(e.target.attributes.value.nodeValue))
     }
   }
-}
+)
 
 SuggestionList.propTypes = {
   suggestions: PropTypes.arrayOf(PropTypes.shape({

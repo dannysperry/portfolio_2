@@ -17,6 +17,7 @@
   "author": "Daniel Sperry",
   "license": "ISC",
   "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "browser-sync": "^2.18.13",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",

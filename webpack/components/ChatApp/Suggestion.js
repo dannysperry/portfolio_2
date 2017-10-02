@@ -13,7 +13,9 @@ const Suggestion = ({ onClick, text, id, value }) => {
 
 Suggestion.propTypes = {
   onClick: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired
 }
 
 export default Suggestion

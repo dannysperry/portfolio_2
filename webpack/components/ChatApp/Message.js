@@ -8,22 +8,28 @@ class Message extends Component {
       text: '...'
     }
   }
-  componentDidMount() {
-    setTimeout(function() {
-      this.setState({
-        text: this.props.text
-      })
-    }.bind(this), 1500)
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.completed) {
+      setTimeout(function() {
+        this.setState({
+          text: this.props.text
+        })
+      }.bind(this), 1500)
+    }
   }
 
   render() {
-    const className = ['chat_bubble']
+    let className = ['chat_bubble']
 
-    if (this.props.user === 'me') {
-      className.push('chat_bubble--slideIn')
-      className.push('chat_bubble--fade')
-    } else if (this.props.user === 'you') {
-      className.push('chat_bubble--response')
+    if (this.props.completed) {
+      if (this.props.user === 'me') {
+        className = [...className, 'chat_bubble--slideIn', 'chat_bubble--fade']
+      } else if (this.props.user === 'you') {
+        className = [...className, 'chat_bubble--response']
+      }
+    } else {
+      className = [...className, 'incomplete']
     }
 
     return (
