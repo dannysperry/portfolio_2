@@ -1,52 +1,41 @@
-import React from 'react'
+import React, { Component, cloneElement, Children } from 'react'
 import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
-import { toggleMessage } from '../../actions'
+import { toggleMessages } from '../../actions'
 
 import Message from './Message'
 
 
-const MessageList = ({ messages, messageHandler }) => {
-  var messageComponents = messages.map(message => <Message key={message.id} {...message} />)
+class MessageList extends Component {
+  render() {
+    const messageListChildren = this.props.messages
 
-  var message = messages.find(m => m.completed === false)
-  if (message) {
-    setTimeout(function() {
-      messageHandler(message.id)
-    }.bind(this), 2000)
+    return (
+      <ol className="MessageList">
+        { messageListChildren }
+      </ol>
+    )
   }
-
-  return (
-    <ol className="MessageList">
-      { messageComponents }
-    </ol>
-  )
 }
 
-const mapStateToProps = state => ({
-  messages: state.messages
-})
-
-const mapDispatchToProps = (dispatch) => ({
-  messageHandler: (id) => {
-    console.log(id)
-    return dispatch(toggleMessage(id))
+const mapStateToProps = state => {
+  var delay = 0
+  return {
+    messages: state.messages.filter(message => message.id !== 0).map(message => {
+      const delayStart = delay + 750
+      delay = delayStart + ((message.text.length/15)*1000)
+      return <Message key={message.id} delay={delay} load={delayStart} {...message} />
+    })
   }
-})
+}
 
 MessageList.propTypes = {
-  messages: PropTypes.arrayOf(PropTypes.shape({
-    text: PropTypes.string.isRequired,
-    user: PropTypes.string.isRequired,
-    completed: PropTypes.bool.isRequired
-  }).isRequired).isRequired,
-  messageHandler: PropTypes.func.isRequired
+  messages: PropTypes.arrayOf(PropTypes.objectOf(Message)).isRequired
 }
 
 
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(MessageList)

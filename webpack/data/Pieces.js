@@ -9,45 +9,52 @@
 // conversation piece
 const arrayOfPieces = [
   {
-    name: 'init',
+    name: '',
+    id: 'init',
     messages: [
       "Hi there!",
-      "I'm Daniel Sperry's chat assitant. I was built to help you get to know him more.",
-      "I have authorization to discuss his personality, work behavoirs, resume, and code examples.",
-      "You can send him a direct message here if you have any other questions."
+      "I'm Daniel Sperry's chat bot.",
+      "I can tell you a bit about him personally and professionally.",
+      "What would you like to know about him?"
     ],
     suggestions: [
       {
-        text: 'Wanna About?',
+        text: "I'd like to hear more about him.",
         action: 'about'
       },
       {
-        text: 'Wanna Resume?',
-        action: 'resume'
-      },
-      {
-        text: 'Wanna Code Examples?',
-        action: 'code_examples'
-      },
-      {
-        text: 'Wanna Contact Him?',
+        text: "I already know him and would like to message him.",
         action: 'contact'
       }
     ]
   },
   {
-    name: 'about',
+    name: "I'd like to hear more about him.",
+    id: 'about',
     messages: [
-      'Here is an about messages though bro',
-      'Dive into my personality now'
+      "A 29 year old male human. Approximately 6ft tall and 150lbs.",
+      "He easily befriends people and is eager to lend a helping hand.",
+      "Don't tell him I told you this, but if you really want him to do a good job, just make him think you need him, he always pulls through for the team in those situations.",
+      "That's a little bit about him personally. Would you like to see his resume or look through some code examples he's prepared?"
     ],
-    suggestions: []
+    suggestions: [
+      {
+        text: 'Can I see his resume please?',
+        action: 'resume'
+      },
+      {
+        text: 'Lets take a look at some code.',
+        action: 'code_examples'
+      }
+    ]
   },
-
   {
     name: 'resume',
+    id: 'resume',
     messages: [
-      'Heres a link to my resume, wanna contact me'
+      "No problem at all! Here you go.",
+      ""
+
     ],
     suggestions: [
       {
@@ -59,6 +66,7 @@ const arrayOfPieces = [
 
   {
     name: 'code_examples',
+    id: 'code_examples',
     messages: [
       'Would you like to see the short or long version of his code examples?'
     ],
@@ -76,6 +84,7 @@ const arrayOfPieces = [
 
   {
     name: 'code_examples--short',
+    id: 'code_examples--short',
     messages: [
       'Take a look at his [Gists](http://https://gist.github.com/dannysperry), an [example](https://github.com/dannysperry/api-generators) with generators that document and build json api resources in rails, or this [example](https://github.com/dannysperry/react-rails5/tree/fresh-start) that replaces the asset pipeline for webpack in Rails 5.1 & React'
     ],
@@ -84,6 +93,7 @@ const arrayOfPieces = [
 
   {
     name: 'code_examples--long',
+    id: 'code_examples--long',
     messages: [
       'Would you like to talk about the Gist examples or one of the two Github examples?'
     ],
@@ -100,6 +110,7 @@ const arrayOfPieces = [
 
   {
     name: 'code_examples--long--gists',
+    id: 'code_examples--long--gists',
     messages: [
       ''
     ],
@@ -108,6 +119,7 @@ const arrayOfPieces = [
 
   {
     name: 'code_examples--long--github',
+    id: 'code_examples--long--github',
     messages: [
       'I have two github examples. Would you like to see a full-stack example or a back-end json api example?',
     ],
@@ -124,6 +136,7 @@ const arrayOfPieces = [
 
   {
     name: 'code_examples--long--github--fullstack',
+    id: 'code_examples--long--github--fullstack',
     messages: [
       '[Rails 5.1 & ReactJS example](https://github.com/dannysperry/react-rails5/tree/fresh-start)',
     ],
@@ -132,6 +145,7 @@ const arrayOfPieces = [
 
   {
     name: 'code_examples--long--github--backend',
+    id: 'code_examples--long--github--backend',
     messages: [
       '[Api generator example](https://github.com/dannysperry/api-generators)'
     ],
@@ -140,6 +154,7 @@ const arrayOfPieces = [
 
   {
     name: 'contact',
+    id: 'contact',
     messages: [
       "If you'd like I can text him a message. Type something and I'll make sure it's what you want to send."
     ],
@@ -148,13 +163,22 @@ const arrayOfPieces = [
 ]
 
 // Returns a Piece or NULL
-const findByName = name => {
-  return arrayOfPieces.find(piece => piece.name === name)
+const findById = id => {
+  return arrayOfPieces.find(piece => piece.id === id)
+}
+
+const getNameById = id => {
+  const piece = findById(id)
+  if (typeof(piece) !== 'undefined') {
+    return piece.name
+  } else {
+    return id
+  }
 }
 
 // Returns an ARRAY
-const messagesFromName = name => {
-  const piece = findByName(name)
+const messagesFromName = id => {
+  const piece = findById(id)
   if (typeof(piece) !== 'undefined') {
     return piece.messages
   } else {
@@ -163,8 +187,8 @@ const messagesFromName = name => {
 }
 
 // Returns an ARRAY
-const suggestionsFromName = name => {
-  const piece = findByName(name)
+const suggestionsFromName = id => {
+  const piece = findById(id)
   if (typeof(piece) !== 'undefined') {
     return piece.suggestions
   } else {
@@ -173,11 +197,11 @@ const suggestionsFromName = name => {
 }
 
 // Returns a BOOL
-const isPresent = name => {
-  const arrayOfPiecesByNames = arrayOfPieces.map(piece => piece.name)
-  return arrayOfPiecesByNames.includes(name)
+const isPresent = id => {
+  const arrayOfPiecesByNames = arrayOfPieces.map(piece => piece.id)
+  return arrayOfPiecesByNames.includes(id)
 }
 
 export default arrayOfPieces
 
-export { findByName, messagesFromName, suggestionsFromName, isPresent }
+export { getNameById, messagesFromName, suggestionsFromName, isPresent }

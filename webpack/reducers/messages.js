@@ -1,17 +1,18 @@
-import { messagesFromName, isPresent } from '../data/Pieces'
+import { messagesFromName, getNameById, isPresent } from '../data/Pieces'
 
 var id = 0
-const getYouMessage = (text) => ({
-  text: text,
-  user: 'you',
-  completed: false,
-  id: id++
-})
+const getYouMessage = text => {
+  const displayText = getNameById(text)
+  return {
+    text: text,
+    user: 'you',
+    id: id++
+  }
+}
 
-const getMeMessage = (text) => ({
+const getMeMessage = text => ({
   text: text,
   user: 'me',
-  completed: false,
   id: id++
 })
 
@@ -25,15 +26,6 @@ const messages = (state = [], action) => {
     switch(action.type) {
       case 'SUBMIT_MESSAGE':
         return [...state, getYouMessage(action.text), ...getMeMessages(action.text)]
-      case 'TOGGLE_MESSAGE':
-        return state.map( (message) => {
-          if(message.id !== action.id) { return message }
-
-          return {
-            ...message,
-            completed: true
-          }
-        })
       default:
         return state
     }
