@@ -8,8 +8,26 @@ import Message from './Message'
 
 
 class MessageList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      lastMessageId: 0
+    }
+  }
   render() {
-    const messageListChildren = this.props.messages
+    this.setState({
+      lastMessageId: this.props.messages[this.props.messages.length - 1].id
+    })
+    var delay = 0
+    let delayStart = 0
+    const messageListChildren = this.props.messages.map(message => {
+      if (message.id > this.state.lastMessageId) {
+        delayStart = delay + 750
+        delay = delayStart + ((message.text.length/30)*1000)
+      }
+      return <Message key={message.id} delay={delay} load={delayStart} {...message} />
+    })
+
 
     return (
       <ol className="MessageList">
@@ -20,13 +38,9 @@ class MessageList extends Component {
 }
 
 const mapStateToProps = state => {
-  var delay = 0
+
   return {
-    messages: state.messages.filter(message => message.id !== 0).map(message => {
-      const delayStart = delay + 750
-      delay = delayStart + ((message.text.length/15)*1000)
-      return <Message key={message.id} delay={delay} load={delayStart} {...message} />
-    })
+    messages: state.messages.filter(message => message.id !== 0)
   }
 }
 

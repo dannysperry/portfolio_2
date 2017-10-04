@@ -11910,16 +11910,34 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var MessageList = function (_Component) {
   _inherits(MessageList, _Component);
 
-  function MessageList() {
+  function MessageList(props) {
     _classCallCheck(this, MessageList);
 
-    return _possibleConstructorReturn(this, (MessageList.__proto__ || Object.getPrototypeOf(MessageList)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (MessageList.__proto__ || Object.getPrototypeOf(MessageList)).call(this, props));
+
+    _this.state = {
+      lastMessageId: 0
+    };
+    return _this;
   }
 
   _createClass(MessageList, [{
     key: 'render',
     value: function render() {
-      var messageListChildren = this.props.messages;
+      var _this2 = this;
+
+      this.setState({
+        lastMessageId: this.props.messages[this.props.messages.length - 1].id
+      });
+      var delay = 0;
+      var delayStart = 0;
+      var messageListChildren = this.props.messages.map(function (message) {
+        if (message.id > _this2.state.lastMessageId) {
+          delayStart = delay + 750;
+          delay = delayStart + message.text.length / 30 * 1000;
+        }
+        return _react2.default.createElement(_Message2.default, _extends({ key: message.id, delay: delay, load: delayStart }, message));
+      });
 
       return _react2.default.createElement(
         'ol',
@@ -11933,14 +11951,10 @@ var MessageList = function (_Component) {
 }(_react.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-  var delay = 0;
+
   return {
     messages: state.messages.filter(function (message) {
       return message.id !== 0;
-    }).map(function (message) {
-      var delayStart = delay + 750;
-      delay = delayStart + message.text.length / 15 * 1000;
-      return _react2.default.createElement(_Message2.default, _extends({ key: message.id, delay: delay, load: delayStart }, message));
     })
   };
 };
