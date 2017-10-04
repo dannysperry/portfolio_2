@@ -2,7 +2,7 @@ import React, { Component, cloneElement, Children } from 'react'
 import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
-import { toggleMessages } from '../../actions'
+import { toggleMessageLoader } from '../../actions'
 
 import Message from './Message'
 
@@ -14,20 +14,29 @@ class MessageList extends Component {
       lastMessageId: 0
     }
   }
-  render() {
+
+  componentWillReceiveProps(nextProps) {
     this.setState({
       lastMessageId: this.props.messages[this.props.messages.length - 1].id
     })
-    var delay = 0
+  }
+
+  render() {
+    let delay = 0
     let delayStart = 0
     const messageListChildren = this.props.messages.map(message => {
+      if (message.user === "you") return <Message key={message.id} loadTime={0} waitTime={0} {...message} />
+
       if (message.id > this.state.lastMessageId) {
         delayStart = delay + 750
         delay = delayStart + ((message.text.length/30)*1000)
       }
-      return <Message key={message.id} delay={delay} load={delayStart} {...message} />
+      return <Message key={message.id} loadTime={delay} waitTime={delayStart} {...message} />
     })
 
+    setTimeout(() => {
+      this.props.turnOffLoader()
+    }, delay)
 
     return (
       <ol className="MessageList">
@@ -37,12 +46,15 @@ class MessageList extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => ({
+  messages: state.messages.filter(message => message.id !== 0)
+})
 
-  return {
-    messages: state.messages.filter(message => message.id !== 0)
+const mapDispatchToProps = (dispatch) => ({
+  turnOffLoader: () => {
+    dispatch(toggleMessageLoader())
   }
-}
+})
 
 MessageList.propTypes = {
   messages: PropTypes.arrayOf(PropTypes.objectOf(Message)).isRequired
@@ -51,5 +63,6 @@ MessageList.propTypes = {
 
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(MessageList)

@@ -4,7 +4,7 @@ var id = 0
 const getYouMessage = text => {
   const displayText = getNameById(text)
   return {
-    text: text,
+    text: displayText,
     user: 'you',
     id: id++
   }

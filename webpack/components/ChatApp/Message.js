@@ -7,26 +7,26 @@ class Message extends Component {
     super(props);
     this.state = {
       loading: true,
-      hidden: true
+      waiting: true
     }
   }
 
   componentDidMount() {
     setTimeout(() => {
       this.setState({
-        hidden: false
+        waiting: false
       })
-    }, this.props.load)
+    }, this.props.waitTime)
 
     setTimeout(() => {
       this.setState({
         loading: false
       })
-    }, this.props.delay)
+    }, this.props.loadTime)
   }
 
   render() {
-    if (this.state.hidden) return null
+    if (this.state.waiting) return null
     if (this.state.loading) {
       return (
         <li key={this.props.id}>

@@ -5,3 +5,7 @@ export const submitMessage = text => ({
   id: nextTodoId++,
   text
 })
+
+export const toggleMessageLoader = () => ({
+  type: 'TURN_OFF_LOADER'
+})

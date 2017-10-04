@@ -4903,6 +4903,12 @@ var submitMessage = exports.submitMessage = function submitMessage(text) {
   };
 };
 
+var toggleMessageLoader = exports.toggleMessageLoader = function toggleMessageLoader() {
+  return {
+    type: 'TURN_OFF_LOADER'
+  };
+};
+
 /***/ }),
 /* 38 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -11729,11 +11735,16 @@ var _suggestions = __webpack_require__(118);
 
 var _suggestions2 = _interopRequireDefault(_suggestions);
 
+var _loadingMessages = __webpack_require__(277);
+
+var _loadingMessages2 = _interopRequireDefault(_loadingMessages);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var chatApp = (0, _redux.combineReducers)({
   messages: _messages2.default,
-  suggestions: _suggestions2.default
+  suggestions: _suggestions2.default,
+  loadingMessages: _loadingMessages2.default
 });
 
 exports.default = chatApp;
@@ -11791,7 +11802,7 @@ var Message = function (_Component) {
 
     _this.state = {
       loading: true,
-      hidden: true
+      waiting: true
     };
     return _this;
   }
@@ -11803,20 +11814,20 @@ var Message = function (_Component) {
 
       setTimeout(function () {
         _this2.setState({
-          hidden: false
+          waiting: false
         });
-      }, this.props.load);
+      }, this.props.waitTime);
 
       setTimeout(function () {
         _this2.setState({
           loading: false
         });
-      }, this.props.delay);
+      }, this.props.loadTime);
     }
   }, {
     key: 'render',
     value: function render() {
-      if (this.state.hidden) return null;
+      if (this.state.waiting) return null;
       if (this.state.loading) {
         return _react2.default.createElement(
           'li',
@@ -11922,22 +11933,32 @@ var MessageList = function (_Component) {
   }
 
   _createClass(MessageList, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      this.setState({
+        lastMessageId: this.props.messages[this.props.messages.length - 1].id
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
 
-      this.setState({
-        lastMessageId: this.props.messages[this.props.messages.length - 1].id
-      });
       var delay = 0;
       var delayStart = 0;
       var messageListChildren = this.props.messages.map(function (message) {
+        if (message.user === "you") return _react2.default.createElement(_Message2.default, _extends({ key: message.id, loadTime: 0, waitTime: 0 }, message));
+
         if (message.id > _this2.state.lastMessageId) {
           delayStart = delay + 750;
           delay = delayStart + message.text.length / 30 * 1000;
         }
-        return _react2.default.createElement(_Message2.default, _extends({ key: message.id, delay: delay, load: delayStart }, message));
+        return _react2.default.createElement(_Message2.default, _extends({ key: message.id, loadTime: delay, waitTime: delayStart }, message));
       });
+
+      setTimeout(function () {
+        _this2.props.turnOffLoader();
+      }, delay);
 
       return _react2.default.createElement(
         'ol',
@@ -11951,7 +11972,6 @@ var MessageList = function (_Component) {
 }(_react.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-
   return {
     messages: state.messages.filter(function (message) {
       return message.id !== 0;
@@ -11959,11 +11979,19 @@ var mapStateToProps = function mapStateToProps(state) {
   };
 };
 
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    turnOffLoader: function turnOffLoader() {
+      dispatch((0, _actions.toggleMessageLoader)());
+    }
+  };
+};
+
 MessageList.propTypes = {
   messages: _propTypes2.default.arrayOf(_propTypes2.default.objectOf(_Message2.default)).isRequired
 };
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(MessageList);
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(MessageList);
 
 /***/ }),
 /* 111 */
@@ -12043,7 +12071,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var SuggestionList = function SuggestionList(_ref) {
   var suggestions = _ref.suggestions,
-      suggestionClickHandler = _ref.suggestionClickHandler;
+      suggestionClickHandler = _ref.suggestionClickHandler,
+      loadingMessages = _ref.loadingMessages;
+
+  if (loadingMessages) {
+    console.log('loading messages is true');
+    return null;
+  }
+  console.log('loading suggestions now');
   return _react2.default.createElement(
     'div',
     { className: 'SuggestionsList' },
@@ -12059,7 +12094,10 @@ var SuggestionList = function SuggestionList(_ref) {
 };
 
 var mapStateToProps = function mapStateToProps(state) {
-  return { suggestions: state.suggestions };
+  return {
+    suggestions: state.suggestions,
+    loadingMessages: state.loadingMessages
+  };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
@@ -12318,7 +12356,7 @@ var id = 0;
 var getYouMessage = function getYouMessage(text) {
   var displayText = (0, _Pieces.getNameById)(text);
   return {
-    text: text,
+    text: displayText,
     user: 'you',
     id: id++
   };
@@ -32302,6 +32340,40 @@ exports.uriFragmentInHTMLData = exports.uriComponentInHTMLData;
 */
 exports.uriFragmentInHTMLComment = exports.uriComponentInHTMLComment;
 
+
+/***/ }),
+/* 276 */,
+/* 277 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var loadingMessages = function loadingMessages() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case 'TURN_OFF_LOADER':
+      {
+        console.log('turn off loader reducer');
+        return false;
+      }
+    case 'SUBMIT_MESSAGE':
+      {
+        return true;
+      }
+    default:
+      {
+        return state;
+      }
+  }
+};
+
+exports.default = loadingMessages;
 
 /***/ })
 /******/ ]);
