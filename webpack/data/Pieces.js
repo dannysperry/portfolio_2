@@ -1,3 +1,4 @@
+
 // conversation pieces
 // * name: 'a unique name',
 //   message: 'a message to tell you about this action',
@@ -13,23 +14,22 @@ const arrayOfPieces = [
     id: 'init',
     messages: [
       "Hi there!",
-      "I'm Daniel Sperry's chat bot.",
-      "I can tell you a bit about him personally and professionally.",
-      "What would you like to know about him?"
+      "I'm Daniel Sperry's chat bot. It's my primary role to help you get to know him.",
+      "Please select a suggested response or feel free to ask me to contact Daniel directly for you and I will get back to you with his reply shortly."
     ],
     suggestions: [
       {
-        text: "I'd like to hear more about him.",
+        text: "I'd like to hear more about him and his work experience.",
         action: 'about'
       },
       {
-        text: "I already know him and would like to message him.",
+        text: "I already know him and would like you to message him.",
         action: 'contact'
       }
     ]
   },
   {
-    name: "I'd like to hear more about him.",
+    name: "I'd like to hear more about him and his work experience.",
     id: 'about',
     messages: [
       "A 29 year old male human. Approximately 6ft tall and 150lbs.",
@@ -49,26 +49,30 @@ const arrayOfPieces = [
     ]
   },
   {
-    name: 'resume',
+    name: 'Can I see his resume please?',
     id: 'resume',
     messages: [
       "No problem at all! Here you go.",
-      ""
-
+      "<a download='http://www.dsperry.com/resume.pdf' href='http://dsperry.com/resume.pdf' title='resume'><img src='https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwiliYCojtjWAhVI42MKHekwCDwQjRwIBw&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AOOjs_UI_icon_download-ltr.svg&psig=AOvVaw1Un_0UZmwdupvivVdUPK-r&ust=1507245799960591' /></a>",
+      "Would you like to take a look at code examples now or get ahold of him?"
     ],
     suggestions: [
       {
-        text: 'contact me',
+        text: 'Can you send him a message for me?',
         action: 'contact'
+      },
+      {
+        text: "Let's take a look at some code.",
+        action: 'code_examples'
       }
     ]
   },
 
   {
-    name: 'code_examples',
+    name: "Let's take a look at some code.",
     id: 'code_examples',
     messages: [
-      'Would you like to see the short or long version of his code examples?'
+      "Daniel has a short list of Gists and Github Repo's. "
     ],
     suggestions: [
       {

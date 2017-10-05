@@ -11,6 +11,7 @@ class Message extends Component {
     }
   }
 
+  
   componentDidMount() {
     setTimeout(() => {
       this.setState({

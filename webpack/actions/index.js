@@ -1,9 +1,10 @@
 let nextTodoId = 0
 
-export const submitMessage = text => ({
+export const submitMessage = (text, action) => ({
   type: 'SUBMIT_MESSAGE',
   id: nextTodoId++,
-  text
+  text: text,
+  action: action
 })
 
 export const toggleMessageLoader = () => ({

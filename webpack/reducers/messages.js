@@ -1,10 +1,9 @@
-import { messagesFromName, getNameById, isPresent } from '../data/Pieces'
+import { messagesFromName, isPresent } from '../data/Pieces'
 
 var id = 0
 const getYouMessage = text => {
-  const displayText = getNameById(text)
   return {
-    text: displayText,
+    text: text,
     user: 'you',
     id: id++
   }
@@ -16,8 +15,8 @@ const getMeMessage = text => ({
   id: id++
 })
 
-const getMeMessages = (messageName) => {
-  let messages = messagesFromName(messageName)
+const getMeMessages = (id) => {
+  let messages = messagesFromName(id)
   messages = messages.map(message => getMeMessage(message))
   return messages
 }
@@ -25,7 +24,7 @@ const getMeMessages = (messageName) => {
 const messages = (state = [], action) => {
     switch(action.type) {
       case 'SUBMIT_MESSAGE':
-        return [...state, getYouMessage(action.text), ...getMeMessages(action.text)]
+        return [...state, getYouMessage(action.text), ...getMeMessages(action.action)]
       default:
         return state
     }

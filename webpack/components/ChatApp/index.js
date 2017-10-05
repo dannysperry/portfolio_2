@@ -4,35 +4,49 @@ import MessageList from './MessageList'
 import SuggestionList from './SuggestionList'
 
 import { connect } from 'react-redux'
-import { submitMessage } from '../../actions'
+import { submitMessage, toggleMessageLoader } from '../../actions'
 
 
 class ChatApp extends Component {
-  componentWillMount() {
-    this.props.initHandler()
-  }
-
   render() {
     return(
-      <div id="chatApp" className="ChatApp">
+      <section id="chatApp" className="ChatApp">
         <div className="ChatApp--overflow">
           <div className="ChatApp--container">
-            <MessageList />
-            <SuggestionList />
+            <MessageList
+              messages={this.props.messages}
+              turnOffLoader={this.props.turnOffLoader}
+              initHandler={this.props.initHandler} />
+            <SuggestionList
+              suggestions={this.props.suggestions}
+              suggestionClickHandler={this.props.suggestionClickHandler}
+              loadingMessages={this.props.loadingMessages} />
           </div>
         </div>
-      </div>
+      </section>
     )
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
+const mapStateToProps = state => ({
+  messages: state.messages.filter(message => message.id !== 0),
+  suggestions: state.suggestions,
+  loadingMessages: state.loadingMessages
+})
+
+const mapDispatchToProps = dispatch => ({
+  turnOffLoader: () => {
+    dispatch(toggleMessageLoader())
+  },
+  suggestionClickHandler: e => {
+    dispatch(submitMessage(e.target.textContent, e.target.attributes.value.nodeValue))
+  },
   initHandler: () => {
-    dispatch(submitMessage('init'))
+    dispatch(submitMessage('', 'init'))
   }
 })
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(ChatApp)
