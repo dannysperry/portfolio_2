@@ -4,10 +4,7 @@
   "description": "A chat messaging system for my portfolio",
   "main": "index.js",
   "scripts": {
-    "test": "",
-    "start": "node server",
-    "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors",
-    "eslint": "eslint ."
+    "start": "yarn webpack && jekyll b && jekyll s"
   },
   "engines": {
     "node": "6.11.4",

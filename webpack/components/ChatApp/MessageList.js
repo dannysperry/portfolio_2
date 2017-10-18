@@ -34,7 +34,7 @@ class MessageList extends Component {
 
         if (message.id > this.state.lastMessageId) {
           delayStart = delay + 750
-          delay = delayStart + ((message.text.length/30)*1000)
+          delay = delayStart + ((message.text.length/40)*1000)
         }
         return <Message key={message.id} loadTime={delay} waitTime={delayStart} {...message} />
       })

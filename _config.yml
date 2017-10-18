@@ -4,6 +4,10 @@ description: I know a lot about laptops, I'm just not very good with computers.
 # baseurl: "/particle" # the subpath of your site, e.g. /blog
 # url: "localhost:3000" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
 
+
+sass:
+  sass_dir: _sass
+
 # User settings
 username: Daniel Sperry
 user_title: Web Developer
@@ -16,66 +20,15 @@ google-analytics:
 # paginate: 5
 # paginate_path: /page:num/
 
-exclude: ['package.json', 'src' , 'node_modules']
+exclude: [
+  'package.json', 'package-lock.json',
+  'yarn.lock', 'node_modules', 'webpack',
+  'gulpfile.js', 'config.ru',
+  'LICENSE.txt', 'README.md',
+  'Gemfile', 'Gemfile.lock'
+]
 
 # gems: ['jekyll-paginate']
 
 post:
   coming_soon: Sorry but I have no visible blog entries :(
-
-
-about_me:
-  title: My Expertise
-  description: Adapt what is useful, reject what is useless, and add what is specifically your own.
-  front_end_description: I like taking responsive designs and making them function just right. Organized CSS, semantic HTML, reusability through component architecture, and keyframe animations. There is a lot of speed and accessibility improvements here when you try to do it in pure CSS. If you can't tell, I care about keeping things organized and structured. BEMish, OOCSS, and ITCSS. I like ITCSS right now because it enforces good specificity and component/object naming which aligns nicely with React's Component structure.
-  back_end_description: Where the front-end feels like art's and craft's for me. The back-end feels like heavy lifting work. I like both, rarely at the same time. TDD/BDD and OOP are at the core of all my coding decisions because of the Rails community and how it brought up developer's like myself. After my brain really grasped testing and OOP, I advanced to learning organization techniques like SOLID and other common design patterns and anti-patterns. Once I'd established myself as a reliable developer, I'd decided to give back to the community. It was only natural, everything in rails is open source and making things for free is too easy on Github. Writing OSS made me think about documentation and suggesting standards within a project.
-  tools_description: I'm used to having my macbook. I have a sit and stand desk here at my home office, 23" monitor, and a comfy seat for when my legs want to tap out. I send a lot of messages through \#slack, email/call clients, code in SublimeText. I'm familiar with ruby and node. Their respective version managers as well as well as npm/webpack, gulp/bower/grunt, rubygems/bundler, and agile processes.
-
-projects:
-  - title: Grower's Outlet
-    date:
-      datetime: 2017-1-1 00:00Z
-      text: 2017
-    logo: "/assets/img/growers_outlet--logo.png"
-    url:
-      href: http://growers-outlet.herokuapp.com
-      title: Check it out!
-    description: Deployed on Heroku. Build with Rails 5.1 and webpacker React. Email through sendgrid. The menu uses a plugin that the retail store's POS service provides.
-
-code_samples:
-  - title: Gists
-    url:
-      href: https://gist.github.com/dannysperry
-      title: all
-  - title: Github - OSS - ruby gem
-    url:
-      href: https://github.com/dannysperry/placebear
-      title: Placebear
-work_experience:
-  - title: Grolar LLC
-    date:
-      datetime: 2017-1-1 00:00Z
-      text: 2017(Q1) - present (8 mos)
-    logo: /assets/img/grolar--logo.png
-    url:
-      href: http://www.grolarllc.github.io/
-      title: Check it out!
-    description: I've began building a template to quickly produce Rails apps that utilize it's back-end strength and simple language, while using webpack and React on the front-end.
-  - title: Metova, Inc
-    date:
-      datetime: 2015-3-1 00:00Z
-      text: 2015 - 2016 (21 mos)
-    logo: /assets/img/metova--logo.png
-    url:
-      href: http://www.metova.com
-      title: Check it out!
-    description: I spent my first 8 months building 4 different MVPs. I was the only developer on each projects and it was my responsibility to develop the project and manage the client as well. I would work on a retainer and complete the features we set out to complete as well as drive weekly meetings with the client. Continuous deployment and constant email/chat kept me successful here.<br><br>I then moved onto larger projects using languages I'd never seen before. Languages like C and AngularJS to be specific. I was able to come into these projects and provide Ruby or front-end skills respectively. It wasn't always easy, but I only benefited from the work.<br><br>Aside from all the technical challenges I've endured with stride, I've also learned everything I needed to know about working from home. The pros were immediately obvious, but I've learned the cons. By now, I've got a home office that I can't help but focus in. I set it up that way on purpose.
-  - title: FINE Design Group
-    date:
-      datetime: 2013-11-11 00:00Z
-      text: 2013 - 2015 (16 mos)
-    logo: /assets/img/fine--logo.png
-    url: 
-      href: http://www.wearefine.com
-      title: Check it out!
-    description: The projects at FINE were perfect for me as a Jr Developer. Usually, they were functionally simple. Maybe a jQuery animations, or a new scaffold, perhaps some back-end work on one of the e-ecommerce apps API. <br><br>For the most part I was jumping into some messed up code. I'd notice issues and naturally I'd have solutions. Solving problems no one knew were there while completing my work on time is what allowed me to move into a lead position. <br><br>I benefited from that experience as well. Being lead gave me a change to teach and solify knowledge in Rails and front-end techiques.
