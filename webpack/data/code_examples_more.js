@@ -1,26 +1,31 @@
 
 const fullstackMessages = [
-  "Mr. Sperry has about 6 months of experience with AngularJS 1.2 - 1.6 while with Metova. After leaving he worked with yarn, webpack, and React on his own time.",
+  "Before building the fullstack example, Daniel had about 6 months of experience with Angular 1.2 - 1.6 from his time with Metova. After Metova, he took interest in yarn, webpack, and React.",
   "The fullstack example is a starter template for future Rails & React based apps that uses React Router and server side rendering."
 ]
 
 const backendMessages = [
-  "Mr. Sperry enjoys web development both mathmatically and artistically.",
-  "Daniel was building a JSON api in Rails while eventually coming up with a json api template out of it.",
-  "The generators inside the app were continually updated to accomodate quick REST resources that contain test coverage as well as the necessary documentation for a JSON apis."
+  "All multi-platform apps need a central API. Daniel has build multiple api's with Metova that used an in house gem to document them.",
+  "Daniel was building a JSON api in Rails and needed it to be documented for it's users while also maintaining high test coverage.",
+  "The generators inside the app were continually updated to accomodate building REST resources that contain test coverage as well as the necessary documentation for a JSON APIs quickly."
 ]
 
 export default {
     id: 'code_examples--more',
     messages: [
+      "I have a short description of each Github example available.",
       ...fullstackMessages,
       ...backendMessages,
-      "He can tell you more if you'd like. Do you want to get ahold of him?"
+      "Would you like to get ahold of him to find out more?"
     ],
     suggestions: [
       {
         text: "Message him for me.",
         action: 'contact'
+      },
+      {
+        text: "No thank you.",
+        action: "end"
       }
     ]
   }

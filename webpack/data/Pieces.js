@@ -11,6 +11,7 @@ import contact from './contact'
 import code_examples from './code_examples'
 import code_examples_more from './code_examples_more'
 import experience from './experience'
+import end from './end'
 
 
 const fullstackMessages = [
@@ -32,7 +33,8 @@ const Pieces = [
   contact,
   code_examples,
   code_examples_more,
-  experience
+  experience,
+  end
 ]
 
 // Returns a Piece or NULL

@@ -1,17 +1,18 @@
 export default {
   id: 'about',
   messages: [
-    "How wonderful! I'm delighted. He started his web development career in 2014.",
-    "He has worked with a variety of projects and team sizes within that time at FINE Design Group and Metova, Inc.",
+    "Oh good!! I'll do my best.",
+    "He started his web development career in 2014.",
+    "Since then he's worked with a variety of projects and team sizes.",
     "Sometimes he programs for fun, more recently than usual."
   ],
   suggestions: [
     {
-      text: "Tell me about side projects.",
+      text: "What does he like to program for fun?",
       action: 'code_examples'
     },
     {
-      text: "Tell me about past experience.",
+      text: "Where has he worked before?",
       action: 'experience'
     }
   ]
