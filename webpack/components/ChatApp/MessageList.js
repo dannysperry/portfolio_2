@@ -63,7 +63,11 @@ class MessageList extends Component {
 }
 
 MessageList.propTypes = {
-  messages: PropTypes.arrayOf(PropTypes.objectOf(Message)).isRequired,
+  messages: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    user: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired
+  }).isRequired).isRequired,
   turnOffLoader: PropTypes.func.isRequired,
   initHandler: PropTypes.func.isRequired
 }

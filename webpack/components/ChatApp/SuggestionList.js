@@ -2,20 +2,29 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Suggestion from './Suggestion'
+import ContactForm from './ContactForm'
 
 
 const SuggestionList = ({ suggestions, suggestionClickHandler, loadingMessages }) => {
   if (loadingMessages || !suggestions.length) return null
+
+
+  var response = <ContactForm />
+
+  if (suggestions[0].action !== 'init_contact') {
+    response = suggestions.map((suggestion, i) =>
+      <Suggestion
+        key={i}
+        id={i}
+        value={suggestion.action}
+        onClick={suggestionClickHandler}
+        { ...suggestion } />
+    )
+  }
+
   return (
-    <div className="SuggestionsList">
-      { suggestions.map((suggestion, i) =>
-        <Suggestion
-          key={i}
-          id={i}
-          value={suggestion.action}
-          onClick={suggestionClickHandler}
-          { ...suggestion } />
-      )}
+    <div className="SuggestionList">
+      { response }
     </div>
   )
 }

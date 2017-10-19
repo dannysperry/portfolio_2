@@ -8,16 +8,22 @@ module.exports = {
     path: path.join(__dirname, "assets/js"),
     filename: 'bundle.js'
   },
+  node: {
+    console: false,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  },
   module: {
-  loaders: [
-    {
-      test: /\.jsx?$/,
-      exclude: /(node_modules)/,
-      loader: 'babel-loader', // ‘babel-loader’ is also a legal name to reference
-      query: {
-        presets: ['react', 'es2015', 'env']
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /(node_modules)/,
+        loader: 'babel-loader', // ‘babel-loader’ is also a legal name to reference
+        query: {
+          presets: ['react', 'es2015', 'env']
+        }
       }
-    }
     ]
   }
 };
