@@ -46,7 +46,7 @@ class ContactForm extends Component {
       json: true // Automatically stringifies the body to JSON
     }
 
-    request(optionp-native)
+    request(options)
       .then(function (body) {
         console.log(body)
       })

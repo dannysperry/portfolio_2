@@ -62149,7 +62149,7 @@ var ContactForm = function (_Component) {
         json: true // Automatically stringifies the body to JSON
       };
 
-      (0, _requestPromiseNative2.default)(optionp - native).then(function (body) {
+      (0, _requestPromiseNative2.default)(options).then(function (body) {
         console.log(body);
       }).catch(function (err) {
         console.log(err);
