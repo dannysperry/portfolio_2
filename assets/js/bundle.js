@@ -62136,14 +62136,9 @@ var ContactForm = function (_Component) {
 
       var options = {
         method: 'POST',
-        uri: 'https://api.mailgun.net/v3/www.dsperry.com',
-        auth: {
-          user: 'api:key-e0f635ca8944b302dd273a853cd436f8'
-        },
+        uri: 'https://young-falls-75544.herokuapp.com/contact_me/create',
         form: {
           from: this.state.email,
-          to: 'me@dsperry.com',
-          subject: 'From your website',
           text: this.state.value
         },
         json: true // Automatically stringifies the body to JSON
