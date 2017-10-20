@@ -62155,22 +62155,24 @@ var ContactForm = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'form',
-        { onSubmit: this.handleSubmit },
-        _react2.default.createElement(
-          'label',
-          null,
-          'Email:',
-          _react2.default.createElement('input', { type: 'text', value: this.state.email, name: 'email', onChange: this.handleChange.bind(this) })
-        ),
-        _react2.default.createElement(
-          'label',
-          null,
-          'Message:',
-          _react2.default.createElement('input', { type: 'text', value: this.state.value, name: 'value', onChange: this.handleChange.bind(this) })
-        ),
+        { className: 'ContactForm', onSubmit: this.handleSubmit },
+        _react2.default.createElement('input', { className: 'chat_bubble',
+          placeholder: 'email address',
+          name: 'email',
+          type: 'text',
+          value: this.state.email,
+          onChange: this.handleChange.bind(this) }),
+        _react2.default.createElement('input', { className: 'chat_bubble',
+          placeholder: 'enter message here',
+          name: 'value',
+          type: 'text',
+          value: this.state.value,
+          onChange: this.handleChange.bind(this) }),
         _react2.default.createElement(
           'button',
-          { className: 'btn', type: 'submit', value: 'Submit' },
+          { className: 'chat_bubble chat_bubble--response',
+            type: 'submit',
+            value: 'Submit' },
           'ENTER'
         )
       );
