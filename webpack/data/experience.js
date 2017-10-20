@@ -1,12 +1,10 @@
 const fine = [
-  "FINE",
   "- Developed internally used rails engine as a gem that laid out the foundation of the work for a CMS’s framework to build new projects quicker.",
   "- Added test suite to Rails 3 legacy e-comm app",
   "- Promoted to mid level developer and helped junior developers."
 ].join("\n") + "\n"
 
 const metova = [
-  "METOVA",
   "- Web Developer/Project Lead on 1-2 person teams with 2 - 4 month retainers usually.",
   "- One year long contract with AngularJS on a team of 10 developers.",
   "-   Continuous Deployment on AWS.",
@@ -17,15 +15,17 @@ const metova = [
 export default {
   id: 'experience',
   messages: [
-    "It was at FINE Design Group where Daniel got his Junior title.",
+    "He started out as a 'junior ruby developer' at FINE Design Group in Portland, OR.",
+    "This is what I have listed for FINE Design Group.",
     fine,
-    "He wanted to work remotely full-time and started working with Metova, Inc.",
+    "He wanted to work remotely full-time and crossed paths with Metova, Inc.",
+    "And here's Metova's.",
     metova,
-    "If you'd like to hear more you'll have to message him directly."
+    "Sorry to disappoint you but it seems we're all finished here."
   ],
   suggestions: [
     {
-      text: "Message him for me.",
+      text: "Messaging him sounds good!",
       action: 'contact'
     },
     {

@@ -7,9 +7,8 @@ const links = [
 export default {
   id: 'code_examples',
   messages: [
-    "He uses git and hosts his code on github.com. He used React to build me, and I'm hosted on Github Pages.",
-    links,
-    "Take a look through these links for some of his showcase examples of code."
+    "He uses git and hosts his code on github.com. He used React to build me, and I'm hosted on Github Pages at the moment!",
+    links
   ],
   suggestions: [
     {
@@ -17,7 +16,7 @@ export default {
       action: 'code_examples--more'
     },
     {
-      text: "What about his work experience again?",
+      text: "What about his work experience?",
       action: 'experience'
     }
   ]

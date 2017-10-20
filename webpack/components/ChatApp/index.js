@@ -20,6 +20,7 @@ class ChatApp extends Component {
             <SuggestionList
               suggestions={this.props.suggestions}
               suggestionClickHandler={this.props.suggestionClickHandler}
+              contactSubmitHandler={this.props.contactSubmitHandler}
               loadingMessages={this.props.loadingMessages} />
           </div>
         </div>
@@ -40,6 +41,9 @@ const mapDispatchToProps = dispatch => ({
   },
   suggestionClickHandler: e => {
     dispatch(submitMessage(e.target.textContent, e.target.attributes.value.nodeValue))
+  },
+  contactSubmitHandler: (message) => {
+    dispatch(submitMessage(message, 'contact_complete'))
   },
   initHandler: () => {
     dispatch(submitMessage('', 'init'))

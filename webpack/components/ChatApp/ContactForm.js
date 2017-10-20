@@ -28,6 +28,8 @@ class ContactForm extends Component {
   handleSubmit(event) {
     event.preventDefault()
 
+    this.props.submitMessage(this.state.value)
+
     const options = {
       method: 'POST',
       uri: 'https://dsperry-portfolio.herokuapp.com/contact_me',
@@ -40,11 +42,8 @@ class ContactForm extends Component {
     }
 
     request(options)
-      .then(function (body) {
-        this.setState({
-          email: '',
-          value: ''
-        })
+      .then((body) => {
+        
       })
       .catch(function (err) {
         console.log(err)
@@ -54,27 +53,30 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <form className="ContactForm" onSubmit={this.handleSubmit}>
-        <input className="chat_bubble"
-               placeholder="email address"
-               name="email"
-               type="text"
-               value={this.state.email}
-               onChange={this.handleChange.bind(this)} />
+      <div>
+        <form className="ContactForm" onSubmit={this.handleSubmit}>
+          <input className="chat_bubble"
+                 placeholder="email address"
+                 name="email"
+                 type="text"
+                 value={this.state.email}
+                 onChange={this.handleChange.bind(this)} />
 
-        <input className="chat_bubble"
-               placeholder="enter message here"
-               name="value"
-               type="text"
-               value={this.state.value}
-               onChange={this.handleChange.bind(this)} />
+          <input className="chat_bubble"
+                 placeholder="enter message here"
+                 name="value"
+                 type="text"
+                 value={this.state.value}
+                 onChange={this.handleChange.bind(this)} />
 
-        <button className="chat_bubble chat_bubble--response"
-                type="submit"
-                value="Submit">
-          ENTER
-        </button>
-      </form>
+          <button className="chat_bubble chat_bubble--response"
+                  type="submit"
+                  value="Submit">
+            ENTER
+          </button>
+        </form>
+      </div>
+      
     );
   }
 }

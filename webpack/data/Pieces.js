@@ -8,29 +8,18 @@
 import init from './init'
 import about from './about'
 import contact from './contact'
+import contact_complete from './contact_complete'
 import code_examples from './code_examples'
 import code_examples_more from './code_examples_more'
 import experience from './experience'
 import end from './end'
-
-
-const fullstackMessages = [
-  "Mr. Sperry aquired 6 months of experience with AngularJS 1.2 - 1.6 while with Metova.",
-  "He expanded his JS skills with yarn, Webpack, & ReactJS",
-  "The fullstack example is a starter template for future Rails & React based apps that uses the latest versino of React Router"
-]
-
-const backendMessages = [
-  "Mr. Sperry enjoys web development both analytically and artistically.",
-  "Daniel was building a JSON api in Rails while eventually coming up with a json api template out of it.",
-  "The generators inside the app were continually updated to accomodate quick REST resources that contain test coverage as well as the necessary documentation for a JSON apis."
-]
 
 // conversation piece
 const Pieces = [
   init,
   about,
   contact,
+  contact_complete,
   code_examples,
   code_examples_more,
   experience,

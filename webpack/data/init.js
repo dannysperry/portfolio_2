@@ -1,9 +1,9 @@
 export default {
   id: 'init',
   messages: [
-    "Hello there!",
-    "I'm here to help you learn more about Daniel.",
-    "He's a busy guy but he can make time for you if I'm not being helpful."
+    "Hello!",
+    "I'm D, a programmed segment of this website's owner.",
+    "He's a busy guy, so I service his online portfolio."
   ],
   suggestions: [
     {
@@ -11,7 +11,7 @@ export default {
       action: 'about'
     },
     {
-      text: "I want to get ahold of him.",
+      text: "I just want to contact him.",
       action: 'contact'
     }
   ]

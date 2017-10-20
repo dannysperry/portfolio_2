@@ -5,11 +5,11 @@ import Suggestion from './Suggestion'
 import ContactForm from './ContactForm'
 
 
-const SuggestionList = ({ suggestions, suggestionClickHandler, loadingMessages }) => {
+const SuggestionList = ({ suggestions, suggestionClickHandler, contactSubmitHandler, loadingMessages }) => {
   if (loadingMessages || !suggestions.length) return null
 
 
-  var response = <ContactForm />
+  var response = <ContactForm submitMessage={contactSubmitHandler} />
 
   if (suggestions[0].action !== 'init_contact') {
     response = suggestions.map((suggestion, i) =>
@@ -35,6 +35,7 @@ SuggestionList.propTypes = {
     action: PropTypes.string.isRequired
   }).isRequired).isRequired,
   suggestionClickHandler: PropTypes.func.isRequired,
+  contactSubmitHandler: PropTypes.func.isRequired,
   loadingMessages: PropTypes.bool.isRequired
 }
 

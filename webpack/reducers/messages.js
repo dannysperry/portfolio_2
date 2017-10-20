@@ -17,7 +17,9 @@ const getMeMessage = text => ({
 
 const getMeMessages = (id) => {
   let messages = messagesFromName(id)
-  messages = messages.map(message => getMeMessage(message))
+  if (messages.length > 0) {
+    messages = messages.map(message => getMeMessage(message))
+  }
   return messages
 }
 

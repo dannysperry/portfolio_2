@@ -1,19 +1,15 @@
 export default {
   id: 'about',
   messages: [
-    "Oh good!! I'll do my best.",
+    "Oh good!! This should be quick.",
+    "His name is Daniel Sperry and he lives on the coast of Washington in a small town called Raymond.",
     "He started his web development career in 2014.",
-    "Since then he's worked with a variety of projects and team sizes.",
-    "Sometimes he programs for fun, more recently than usual."
+    "Professionally, he's worked with a variety of projects and team sizes between then and now. On the side he works with React and Rails."
   ],
   suggestions: [
     {
-      text: "What does he like to program for fun?",
+      text: "Tell me about side projects.",
       action: 'code_examples'
-    },
-    {
-      text: "Where has he worked before?",
-      action: 'experience'
     }
   ]
 }
