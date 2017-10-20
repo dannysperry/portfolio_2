@@ -55658,7 +55658,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
   id: 'contact',
-  messages: ["Please enter you're email address and a quick message for me."],
+  messages: ["you can send him an email anytime at me@dsperry.com", "Please enter you're email address and a quick message for me."],
   suggestions: [{
     text: "init_contact",
     action: "init_contact"
@@ -55718,7 +55718,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var fullstackMessages = ["Before building the fullstack example, Daniel had about 6 months of professional experience with Angular from his time with Metova. After Metova, he took a personal interest in yarn, webpack, and React.", "The fullstack example is a starter template for future Rails & React based apps that uses React Router and server side rendering on Rails 5.1."];
 
-var backendMessages = ["Diving more into React caused him to look into building JSON api's for React Native apps.", "He'd built multiple api's with Metova that used an in house gem to for documentation.", "He was building a JSON api in Rails and needed it to be documented like metova had done while also maintaining high test coverage.", "The generators inside the app were continually updated to accomodate building REST resources that contain test coverage as well as the necessary documentation for a JSON api to be setup and built quickly."];
+var backendMessages = ["Diving more into React caused him to look into building JSON api's for React Native apps.", "He'd built multiple api's with Metova that used an in house gem for documentation.", "He was building a JSON api in Rails and needed it to be documented like metova had done while also maintaining high test coverage.", "The generators inside the app were continually updated to accomodate building REST resources that contain test coverage as well as the necessary documentation for a JSON api to be setup and built quickly."];
 
 exports.default = {
   id: 'code_examples--more',
@@ -55742,18 +55742,18 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var fine = ["- Developed internally used rails engine as a gem that laid out the foundation of the work for a CMS’s framework to build new projects quicker.", "- Added test suite to Rails 3 legacy e-comm app", "- Promoted to mid level developer and helped junior developers."].join("\n") + "\n";
+var fine = ["He developed an internally used rails engine as a gem that laid the foundation for FINE's Rails CMS framework.", "He setup a test environment with a legacy Rails 3 e-comm app.", "Eventually FINE promoted him because he is often assisting other developers."];
 
-var metova = ["- Web Developer/Project Lead on 1-2 person teams with 2 - 4 month retainers usually.", "- One year long contract with AngularJS on a team of 10 developers.", "-   Continuous Deployment on AWS.", "-   Agile story points, daily scrum meetings and weekly iteration meetings", "- Project Lead/Scrum master on 2 projects with 2-3 developers."].join("\n") + "\n";
+var metova = ["At Metova he was both Web Developer and Project Lead on 2-3 person teams with 2 - 4 month retainers usually.", "He worked on a 10 dev team on an AngularJS contract that lasted almost a year.", "Agile story points, daily scrum meetings and weekly iteration meetings were apart of his project management and team lead responsibilities."];
 
 exports.default = {
   id: 'experience',
-  messages: ["He started out as a 'junior ruby developer' at FINE Design Group in Portland, OR.", "This is what I have listed for FINE Design Group.", fine, "He wanted to work remotely full-time and crossed paths with Metova, Inc.", "And here's Metova's.", metova, "Sorry to disappoint you but it seems we're all finished here."],
+  messages: ["As far as work experience goes, he started out as a 'junior ruby developer' at FINE Design Group in Portland, OR."].concat(fine, ["He wanted to work remotely full-time and eventually crossed paths with Metova, Inc.", metova, "And that's all there is on Daniel Sperry the remote web developer.", "I'm sorry to disappoint you but it seems we're all finished up here."]),
   suggestions: [{
-    text: "Messaging him sounds good!",
+    text: "Help me contact him.",
     action: 'contact'
   }, {
-    text: 'No thank you, have a good day',
+    text: 'Thank you, have a good day',
     action: 'end'
   }]
 };
@@ -62151,6 +62151,9 @@ var ContactForm = function (_Component) {
     value: function handleSubmit(event) {
       event.preventDefault();
 
+      if (this.state.value.length === 0) {
+        return null;
+      }
       this.props.submitMessage(this.state.value);
 
       var options = {

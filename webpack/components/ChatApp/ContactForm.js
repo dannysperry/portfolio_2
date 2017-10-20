@@ -28,6 +28,9 @@ class ContactForm extends Component {
   handleSubmit(event) {
     event.preventDefault()
 
+    if (this.state.value.length === 0) {
+      return null
+    }
     this.props.submitMessage(this.state.value)
 
     const options = {
@@ -43,7 +46,7 @@ class ContactForm extends Component {
 
     request(options)
       .then((body) => {
-        
+
       })
       .catch(function (err) {
         console.log(err)

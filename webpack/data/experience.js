@@ -1,35 +1,32 @@
 const fine = [
-  "- Developed internally used rails engine as a gem that laid out the foundation of the work for a CMS’s framework to build new projects quicker.",
-  "- Added test suite to Rails 3 legacy e-comm app",
-  "- Promoted to mid level developer and helped junior developers."
-].join("\n") + "\n"
+  "He developed an internally used rails engine as a gem that laid the foundation for FINE's Rails CMS framework.",
+  "He setup a test environment with a legacy Rails 3 e-comm app.",
+  "Eventually FINE promoted him because he is often assisting other developers."
+]
 
 const metova = [
-  "- Web Developer/Project Lead on 1-2 person teams with 2 - 4 month retainers usually.",
-  "- One year long contract with AngularJS on a team of 10 developers.",
-  "-   Continuous Deployment on AWS.",
-  "-   Agile story points, daily scrum meetings and weekly iteration meetings",
-  "- Project Lead/Scrum master on 2 projects with 2-3 developers."
-].join("\n") + "\n"
+  "At Metova he was both Web Developer and Project Lead on 2-3 person teams with 2 - 4 month retainers usually.",
+  "He worked on a 10 dev team on an AngularJS contract that lasted almost a year.",
+  "Agile story points, daily scrum meetings and weekly iteration meetings were apart of his project management and team lead responsibilities."
+]
 
 export default {
   id: 'experience',
   messages: [
-    "He started out as a 'junior ruby developer' at FINE Design Group in Portland, OR.",
-    "This is what I have listed for FINE Design Group.",
-    fine,
-    "He wanted to work remotely full-time and crossed paths with Metova, Inc.",
-    "And here's Metova's.",
+    "As far as work experience goes, he started out as a 'junior ruby developer' at FINE Design Group in Portland, OR.",
+    ...fine,
+    "He wanted to work remotely full-time and eventually crossed paths with Metova, Inc.",
     metova,
-    "Sorry to disappoint you but it seems we're all finished here."
+    "And that's all there is on Daniel Sperry the remote web developer.",
+    "I'm sorry to disappoint you but it seems we're all finished up here."
   ],
   suggestions: [
     {
-      text: "Messaging him sounds good!",
+      text: "Help me contact him.",
       action: 'contact'
     },
     {
-      text: 'No thank you, have a good day',
+      text: 'Thank you, have a good day',
       action: 'end'
     }
   ]
