@@ -62090,6 +62090,8 @@ var _requestPromiseNative2 = _interopRequireDefault(_requestPromiseNative);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -62109,39 +62111,36 @@ var ContactForm = function (_Component) {
       value: ''
     };
 
-    _this.handleValChange = _this.handleValChange.bind(_this);
-    _this.handleEmailChange = _this.handleEmailChange.bind(_this);
+    _this.handleChange = _this.handleChange.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     return _this;
   }
 
   _createClass(ContactForm, [{
-    key: 'handleValChange',
-    value: function handleValChange(event) {
-      this.setState({
-        value: event.target.value
-      });
-    }
-  }, {
-    key: 'handleEmailChange',
-    value: function handleEmailChange(event) {
-      this.setState({
-        email: event.target.value
-      });
+    key: 'handleChange',
+    value: function handleChange(event) {
+      var target = event.target;
+      var value = target.value;
+      var name = target.name;
+
+      this.setState(_defineProperty({}, name, value));
     }
   }, {
     key: 'handleSubmit',
     value: function handleSubmit(event) {
       event.preventDefault();
 
+      console.log(this.state.email);
+      console.log(this.state.value);
       var options = {
         method: 'POST',
-        uri: 'https://young-falls-75544.herokuapp.com/contact_me/create',
+        uri: 'https://dsperry-portfolio.herokuapp.com/contact_me',
         form: {
           from: this.state.email,
           text: this.state.value
         },
         json: true // Automatically stringifies the body to JSON
+
       };
 
       (0, _requestPromiseNative2.default)(options).then(function (body) {
@@ -62160,15 +62159,19 @@ var ContactForm = function (_Component) {
           'label',
           null,
           'Email:',
-          _react2.default.createElement('input', { type: 'text', value: this.state.email, onChange: this.handleEmailChange })
+          _react2.default.createElement('input', { type: 'text', value: this.state.email, name: 'email', onChange: this.handleChange.bind(this) })
         ),
         _react2.default.createElement(
           'label',
           null,
           'Message:',
-          _react2.default.createElement('input', { type: 'text', value: this.state.value, onChange: this.handleValChange })
+          _react2.default.createElement('input', { type: 'text', value: this.state.value, name: 'value', onChange: this.handleChange.bind(this) })
         ),
-        _react2.default.createElement('input', { type: 'button', value: 'Submit' })
+        _react2.default.createElement(
+          'button',
+          { className: 'btn', type: 'submit', value: 'Submit' },
+          'ENTER'
+        )
       );
     }
   }]);

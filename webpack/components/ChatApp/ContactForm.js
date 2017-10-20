@@ -11,34 +11,34 @@ class ContactForm extends Component {
       value: ''
     }
 
-    this.handleValChange = this.handleValChange.bind(this)
-    this.handleEmailChange = this.handleEmailChange.bind(this)
+    this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleValChange(event) {
-    this.setState({
-      value: event.target.value
-    })
-  }
+  handleChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
 
-  handleEmailChange(event) {
     this.setState({
-      email: event.target.value
+      [name]: value
     })
   }
 
   handleSubmit(event) {
     event.preventDefault()
 
+    console.log(this.state.email)
+    console.log(this.state.value)
     const options = {
       method: 'POST',
-      uri: 'https://young-falls-75544.herokuapp.com/contact_me/create',
+      uri: 'https://dsperry-portfolio.herokuapp.com/contact_me',
       form: {
         from: this.state.email,
         text: this.state.value
       },
-      json: true // Automatically stringifies the body to JSON
+      json: true, // Automatically stringifies the body to JSON
+
     }
 
     request(options)
@@ -56,13 +56,13 @@ class ContactForm extends Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Email:
-          <input type="text" value={this.state.email} onChange={this.handleEmailChange} />
+          <input type="text" value={this.state.email} name="email" onChange={this.handleChange.bind(this)} />
         </label>
         <label>
           Message:
-          <input type="text" value={this.state.value} onChange={this.handleValChange} />
+          <input type="text" value={this.state.value} name="value" onChange={this.handleChange.bind(this)} />
         </label>
-        <input type="button" value="Submit" />
+        <button className="btn" type="submit" value="Submit">ENTER</button>
       </form>
     );
   }
