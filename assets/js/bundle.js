@@ -62130,8 +62130,6 @@ var ContactForm = function (_Component) {
     value: function handleSubmit(event) {
       event.preventDefault();
 
-      console.log(this.state.email);
-      console.log(this.state.value);
       var options = {
         method: 'POST',
         uri: 'https://dsperry-portfolio.herokuapp.com/contact_me',
@@ -62144,7 +62142,10 @@ var ContactForm = function (_Component) {
       };
 
       (0, _requestPromiseNative2.default)(options).then(function (body) {
-        console.log(body);
+        this.setState({
+          email: '',
+          value: ''
+        });
       }).catch(function (err) {
         console.log(err);
       });

@@ -28,8 +28,6 @@ class ContactForm extends Component {
   handleSubmit(event) {
     event.preventDefault()
 
-    console.log(this.state.email)
-    console.log(this.state.value)
     const options = {
       method: 'POST',
       uri: 'https://dsperry-portfolio.herokuapp.com/contact_me',
@@ -43,7 +41,10 @@ class ContactForm extends Component {
 
     request(options)
       .then(function (body) {
-        console.log(body)
+        this.setState({
+          email: '',
+          value: ''
+        })
       })
       .catch(function (err) {
         console.log(err)
