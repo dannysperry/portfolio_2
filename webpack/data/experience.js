@@ -16,7 +16,7 @@ export default {
     "As far as work experience goes, he started out as a 'junior ruby developer' at FINE Design Group in Portland, OR.",
     ...fine,
     "He wanted to work remotely full-time and eventually crossed paths with Metova, Inc.",
-    metova,
+    ...metova,
     "And that's all there is on Daniel Sperry the remote web developer.",
     "I'm sorry to disappoint you but it seems we're all finished up here."
   ],
@@ -26,7 +26,7 @@ export default {
       action: 'contact'
     },
     {
-      text: 'Thank you, have a good day',
+      text: 'Thank you, have a good day.',
       action: 'end'
     }
   ]

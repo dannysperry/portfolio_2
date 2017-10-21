@@ -7,7 +7,7 @@ const links = [
 export default {
   id: 'code_examples',
   messages: [
-    "He uses git and hosts his code on github.com. He used React to build me, and I'm hosted on Github Pages at the moment!",
+    "He uses git and hosts his code on github.com. He used React to build me, and I'm hosted on Github Pages.",
     links
   ],
   suggestions: [

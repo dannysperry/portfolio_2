@@ -8,7 +8,8 @@ class ContactForm extends Component {
     super(props);
     this.state = {
       email: '',
-      value: ''
+      message: '',
+      valid: false
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -21,24 +22,24 @@ class ContactForm extends Component {
     const name = target.name;
 
     this.setState({
-      [name]: value
+      [name]: value,
+      valid: this.state.email && this.state.message && true
     })
   }
 
   handleSubmit(event) {
     event.preventDefault()
 
-    if (this.state.value.length === 0) {
-      return null
+    if (this.state.valid) {
+      this.props.submitMessage(this.state.message)
     }
-    this.props.submitMessage(this.state.value)
 
     const options = {
       method: 'POST',
       uri: 'https://dsperry-portfolio.herokuapp.com/contact_me',
       form: {
         from: this.state.email,
-        text: this.state.value
+        text: this.state.message
       },
       json: true, // Automatically stringifies the body to JSON
 
@@ -58,21 +59,24 @@ class ContactForm extends Component {
     return (
       <div>
         <form className="ContactForm" onSubmit={this.handleSubmit}>
-          <input className="chat_bubble"
+          <input key={['form_input', 0].join(' ')}
+                 className="chat_bubble"
                  placeholder="email address"
                  name="email"
                  type="text"
                  value={this.state.email}
-                 onChange={this.handleChange.bind(this)} />
+                 onChange={this.handleChange} />
 
-          <input className="chat_bubble"
+          <input key={['form_input', 1].join(' ')}
+                 className="chat_bubble"
                  placeholder="enter message here"
-                 name="value"
+                 name="message"
                  type="text"
-                 value={this.state.value}
-                 onChange={this.handleChange.bind(this)} />
+                 value={this.state.message}
+                 onChange={this.handleChange} />
 
-          <button className="chat_bubble chat_bubble--response"
+          <button disabled={!this.state.valid}
+                  className="chat_bubble chat_bubble--response"
                   type="submit"
                   value="Submit">
             ENTER

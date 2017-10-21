@@ -55617,9 +55617,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
   id: 'init',
-  messages: ["Hello!", "I'm D, a programmed segment of this website's owner.", "He's a busy guy, so I service his online portfolio."],
+  messages: ["Hello!", "I'm D, a flow chatbot designed by Mr. Sperry.", "I assist with his online portfolio."],
   suggestions: [{
-    text: "Tell me what you know.",
+    text: "Can you tell me about him?",
     action: 'about'
   }, {
     text: "I just want to contact him.",
@@ -55639,7 +55639,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
   id: 'about',
-  messages: ["Oh good!! This should be quick.", "His name is Daniel Sperry and he lives on the coast of Washington in a small town called Raymond.", "He started his web development career in 2014.", "Professionally, he's worked with a variety of projects and team sizes between then and now. On the side he works with React and Rails."],
+  messages: ["Absolutely! This should be relatively quick.", "His name is Daniel Sperry and he lives on the coast of Washington in a small town called Raymond.", "He started his web development career in 2014.", "Professionally, he's worked with a variety of projects and team sizes. Personally, he's been working with React and Rails."],
   suggestions: [{
     text: "Tell me about side projects.",
     action: 'code_examples'
@@ -55658,7 +55658,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
   id: 'contact',
-  messages: ["you can send him an email anytime at me@dsperry.com", "Please enter you're email address and a quick message for me."],
+  messages: ["You can send him an email anytime at me@dsperry.com", "Please enter your email address and a quick message."],
   suggestions: [{
     text: "init_contact",
     action: "init_contact"
@@ -55695,7 +55695,7 @@ var links = ["- **gists** https://gist.github.com/dannysperry", "- **fullstack**
 
 exports.default = {
   id: 'code_examples',
-  messages: ["He uses git and hosts his code on github.com. He used React to build me, and I'm hosted on Github Pages at the moment!", links],
+  messages: ["He uses git and hosts his code on github.com. He used React to build me, and I'm hosted on Github Pages.", links],
   suggestions: [{
     text: "Can you tell me more about these?",
     action: 'code_examples--more'
@@ -55718,7 +55718,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var fullstackMessages = ["Before building the fullstack example, Daniel had about 6 months of professional experience with Angular from his time with Metova. After Metova, he took a personal interest in yarn, webpack, and React.", "The fullstack example is a starter template for future Rails & React based apps that uses React Router and server side rendering on Rails 5.1."];
 
-var backendMessages = ["Diving more into React caused him to look into building JSON api's for React Native apps.", "He'd built multiple api's with Metova that used an in house gem for documentation.", "He was building a JSON api in Rails and needed it to be documented like metova had done while also maintaining high test coverage.", "The generators inside the app were continually updated to accomodate building REST resources that contain test coverage as well as the necessary documentation for a JSON api to be setup and built quickly."];
+var backendMessages = ["Diving more into React led him to look into building JSON api's for React Native apps.", "He'd built api's with Metova that used an in house gem for documentation.", "He started building a JSON api in Rails and wanted it to be documented like Metova had done, while also maintaining high test coverage.", "The generators inside the app were continually updated to accomodate building REST resources that contain test coverage as well as the necessary documentation for a REST JSON api to be setup and built quickly."];
 
 exports.default = {
   id: 'code_examples--more',
@@ -55748,12 +55748,12 @@ var metova = ["At Metova he was both Web Developer and Project Lead on 2-3 perso
 
 exports.default = {
   id: 'experience',
-  messages: ["As far as work experience goes, he started out as a 'junior ruby developer' at FINE Design Group in Portland, OR."].concat(fine, ["He wanted to work remotely full-time and eventually crossed paths with Metova, Inc.", metova, "And that's all there is on Daniel Sperry the remote web developer.", "I'm sorry to disappoint you but it seems we're all finished up here."]),
+  messages: ["As far as work experience goes, he started out as a 'junior ruby developer' at FINE Design Group in Portland, OR."].concat(fine, ["He wanted to work remotely full-time and eventually crossed paths with Metova, Inc."], metova, ["And that's all there is on Daniel Sperry the remote web developer.", "I'm sorry to disappoint you but it seems we're all finished up here."]),
   suggestions: [{
     text: "Help me contact him.",
     action: 'contact'
   }, {
-    text: 'Thank you, have a good day',
+    text: 'Thank you, have a good day.',
     action: 'end'
   }]
 };
@@ -62129,7 +62129,8 @@ var ContactForm = function (_Component) {
 
     _this.state = {
       email: '',
-      value: ''
+      message: '',
+      valid: false
     };
 
     _this.handleChange = _this.handleChange.bind(_this);
@@ -62140,28 +62141,29 @@ var ContactForm = function (_Component) {
   _createClass(ContactForm, [{
     key: 'handleChange',
     value: function handleChange(event) {
+      var _setState;
+
       var target = event.target;
       var value = target.value;
       var name = target.name;
 
-      this.setState(_defineProperty({}, name, value));
+      this.setState((_setState = {}, _defineProperty(_setState, name, value), _defineProperty(_setState, 'valid', this.state.email && this.state.message && true), _setState));
     }
   }, {
     key: 'handleSubmit',
     value: function handleSubmit(event) {
       event.preventDefault();
 
-      if (this.state.value.length === 0) {
-        return null;
+      if (this.state.valid) {
+        this.props.submitMessage(this.state.message);
       }
-      this.props.submitMessage(this.state.value);
 
       var options = {
         method: 'POST',
         uri: 'https://dsperry-portfolio.herokuapp.com/contact_me',
         form: {
           from: this.state.email,
-          text: this.state.value
+          text: this.state.message
         },
         json: true // Automatically stringifies the body to JSON
 
@@ -62180,21 +62182,24 @@ var ContactForm = function (_Component) {
         _react2.default.createElement(
           'form',
           { className: 'ContactForm', onSubmit: this.handleSubmit },
-          _react2.default.createElement('input', { className: 'chat_bubble',
+          _react2.default.createElement('input', { key: ['form_input', 0].join(' '),
+            className: 'chat_bubble',
             placeholder: 'email address',
             name: 'email',
             type: 'text',
             value: this.state.email,
-            onChange: this.handleChange.bind(this) }),
-          _react2.default.createElement('input', { className: 'chat_bubble',
+            onChange: this.handleChange }),
+          _react2.default.createElement('input', { key: ['form_input', 1].join(' '),
+            className: 'chat_bubble',
             placeholder: 'enter message here',
-            name: 'value',
+            name: 'message',
             type: 'text',
-            value: this.state.value,
-            onChange: this.handleChange.bind(this) }),
+            value: this.state.message,
+            onChange: this.handleChange }),
           _react2.default.createElement(
             'button',
-            { className: 'chat_bubble chat_bubble--response',
+            { disabled: !this.state.valid,
+              className: 'chat_bubble chat_bubble--response',
               type: 'submit',
               value: 'Submit' },
             'ENTER'
@@ -94675,16 +94680,28 @@ var Footer = function Footer() {
     _react2.default.createElement(
       "p",
       null,
-      "\xA9 Daniel Sperry"
+      "Daniel Sperry and D the bot!"
     ),
     _react2.default.createElement(
       "p",
       null,
-      "Build with Jekyll and ",
+      "Build with ",
       _react2.default.createElement(
-        "span",
-        { className: "love" },
-        "\u2764"
+        "a",
+        { href: "https://webpack.js.org/" },
+        "webpack"
+      ),
+      ", ",
+      _react2.default.createElement(
+        "a",
+        { href: "https://jekyllrb.com/" },
+        "jekyll"
+      ),
+      ", and ",
+      _react2.default.createElement(
+        "a",
+        { href: "https://pages.github.com/" },
+        "GithubPages"
       )
     )
   );

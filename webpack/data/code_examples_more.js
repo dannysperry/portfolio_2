@@ -5,10 +5,10 @@ const fullstackMessages = [
 ]
 
 const backendMessages = [
-  "Diving more into React caused him to look into building JSON api's for React Native apps.",
-  "He'd built multiple api's with Metova that used an in house gem for documentation.",
-  "He was building a JSON api in Rails and needed it to be documented like metova had done while also maintaining high test coverage.",
-  "The generators inside the app were continually updated to accomodate building REST resources that contain test coverage as well as the necessary documentation for a JSON api to be setup and built quickly."
+  "Diving more into React led him to look into building JSON api's for React Native apps.",
+  "He'd built api's with Metova that used an in house gem for documentation.",
+  "He started building a JSON api in Rails and wanted it to be documented like Metova had done, while also maintaining high test coverage.",
+  "The generators inside the app were continually updated to accomodate building REST resources that contain test coverage as well as the necessary documentation for a REST JSON api to be setup and built quickly."
 ]
 
 export default {

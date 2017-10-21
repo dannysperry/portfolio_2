@@ -28,7 +28,11 @@
     background: #1a222c;
     color: #fff;
     text-align: right;
-    float: right
+    float: right;
+    &:disabled {
+      color: #000;
+      background: #E5E5EA;
+    }
   }
 
   ul {

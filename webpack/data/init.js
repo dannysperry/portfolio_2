@@ -2,12 +2,12 @@ export default {
   id: 'init',
   messages: [
     "Hello!",
-    "I'm D, a programmed segment of this website's owner.",
-    "He's a busy guy, so I service his online portfolio."
+    "I'm D, a flow chatbot designed by Mr. Sperry.",
+    "I assist with his online portfolio."
   ],
   suggestions: [
     {
-      text: "Tell me what you know.",
+      text: "Can you tell me about him?",
       action: 'about'
     },
     {
