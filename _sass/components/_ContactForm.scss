@@ -1,4 +1,4 @@
-.SuggestionList {
+.ContactForm {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,15 +6,5 @@
 
   @include breakpoint(mobileonly) {
     flex-direction: column;
-  }
-
-  div {
-    text-align: center;
-  }
-
-  .chat_bubble {
-    margin: 12px 6px;
-    cursor: pointer;
-    float: none;
   }
 }
