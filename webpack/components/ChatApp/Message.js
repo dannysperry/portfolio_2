@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+
 import ReactMarkdown from 'react-markdown'
+import scrollToComponent from 'react-scroll-to-component'
 
 class Message extends Component {
   constructor(props) {
@@ -11,7 +13,10 @@ class Message extends Component {
     }
   }
 
-  
+  componentDidUpdate() {
+    scrollToComponent(this.message)
+  }
+
   componentDidMount() {
     setTimeout(() => {
       this.setState({
@@ -24,33 +29,33 @@ class Message extends Component {
         loading: false
       })
     }, this.props.loadTime)
+    scrollToComponent(this.message)
   }
 
   render() {
-    if (this.state.waiting) return null
+    var response = null
+    if (this.state.waiting) return response
     if (this.state.loading) {
-      return (
-        <li key={this.props.id}>
-          <div className="chat_bubble">
+      response = <div className="chat_bubble">
             <span className="one">.</span>
             <span className="two">.</span>
             <span className="three">.</span>
           </div>
-        </li>
-      )
     } else {
       let className = ['chat_bubble']
 
       if (this.props.user === 'you') className.push('chat_bubble--response')
-      return (
-        <li key={this.props.id}>
-          <ReactMarkdown
-            source={this.props.text}
-            className={className.join(' ')}
-          />
-        </li>
-      )
+      response = <ReactMarkdown
+          source={this.props.text}
+          className={className.join(' ')}
+        />
     }
+
+    return (
+      <li ref={(node) => this.message = node} key={this.props.id}>
+        { response }
+      </li>
+    )
   }
 }
 

@@ -6,7 +6,6 @@ import SuggestionList from './SuggestionList'
 import { connect } from 'react-redux'
 import { submitMessage, toggleMessageLoader } from '../../actions'
 
-
 class ChatApp extends Component {
   render() {
     return(
