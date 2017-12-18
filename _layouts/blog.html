@@ -2,15 +2,17 @@
 <html lang="en">
   {% include blog.head.html %}
   <body>
-    {% include blog.header.html %}
+    <div class="App">
+      {% include blog.header.html %}
 
-    <div class="blog body--content">
-      {{ content }}
+      <div class="blog body--content">
+        {{ content }}
+      </div>
     </div>
 
     {% include blog.footer.html %}
 
-    {% include scripts.html %}
+    {% include blog_scripts.html %}
     {% include google-analytics.html %}
   </body>
 </html>

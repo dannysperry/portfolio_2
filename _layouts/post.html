@@ -2,13 +2,18 @@
 layout: blog
 ---
 
+
+
 <article class="post" id="intro">
   <div class="content">
     <section class="post--header">
-      <h1>{{ page.title }}</h1>
       <time datatime="{{ page.date }}">{{ page.date | date: "%B %-d, %Y" }}</time>
-      {% if page.estimated_read %}
-      <span>{{ page.estimated_read }}</span>
+      <h1>{{ page.title }}</h1>
+      {% assign words = content | number_of_words %}
+      {% if words < 360 %}
+        <h4>Estimated read time: 1 min</h4>
+      {% else %}
+        <h4>Estimated read time: {{ words | divided_by:180 }} mins</h4>
       {% endif %}
       <article class="post--content">
         {{ content }}

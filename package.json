@@ -4,7 +4,8 @@
   "description": "A chat messaging system for my portfolio",
   "main": "index.js",
   "scripts": {
-    "start": "yarn webpack && jekyll b && jekyll s"
+    "build": "yarn webpack && jekyll b",
+    "start": "yarn build && jekyll s"
   },
   "engines": {
     "node": "6.11.4",
