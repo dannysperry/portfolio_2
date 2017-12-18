@@ -1,0 +1,19 @@
+<div class="banner--nav_links">
+  {% capture temptags %}
+    {% for tag in site.tags %}
+      {{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}
+    {% endfor %}
+  {% endcapture %}
+  {% assign sortedtemptags = temptags | split:' ' | sort | reverse %}
+  {% for temptag in sortedtemptags %}
+    {% assign tagitems = temptag | split: '#' %}
+    {% capture tagname %}{{ tagitems[1] }}{% endcapture %}
+    {% if tagname != "private" %}
+      {% if tagname == page.tag %}
+        <a class="banner--nav_link" href="/tags/{{ tagname }}"><code class="highligher-rouge"><b><nobr>{{ tagname }}</nobr><b></code></a>
+      {% else %}
+        <a class="banner--nav_link" href="/tags/{{ tagname }}"><code class="highligher-rouge"><nobr>{{ tagname }}</nobr></code></a>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</div>

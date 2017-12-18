@@ -16,7 +16,7 @@ permalink: /blog/
 
 {% if posts_count > 0 %}
   <div class="blog--posts">
-    {% for post in posts %}
+    {% for post in site.categories[page.category] %}
       <div class="blog--post">
         <time class="blog--post--meta" datatime="{{ post.date }}">{{ post.date | date: "%B %-d, %Y" }}</time>
         <a class="blog--post--link" href="{{ post.url | prepend: site.baseurl }}">

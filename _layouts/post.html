@@ -2,7 +2,15 @@
 layout: blog
 ---
 
-
+<section class="">
+  <span>[
+    <a href="/tag/all"><code class="highligher-rouge"><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
+    {% for tag in page.tags %}
+      {% capture tag_name %}{{ tag }}{% endcapture %}
+      <a href="/tag/{{ tag_name }}"><code class="highligher-rouge"><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
+    {% endfor %}
+  ]</span>
+</section>
 
 <article class="post" id="intro">
   <div class="content">
